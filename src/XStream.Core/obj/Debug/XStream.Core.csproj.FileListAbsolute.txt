@@ -1,0 +1,5 @@
+C:\open_source\xstream_sharp\src\XStream.Core\obj\Debug\ResolveAssemblyReference.cache
+C:\open_source\xstream_sharp\src\XStream.Core\bin\Debug\XStream.Core.dll
+C:\open_source\xstream_sharp\src\XStream.Core\bin\Debug\XStream.Core.pdb
+C:\open_source\xstream_sharp\src\XStream.Core\obj\Debug\XStream.Core.dll
+C:\open_source\xstream_sharp\src\XStream.Core\obj\Debug\XStream.Core.pdb

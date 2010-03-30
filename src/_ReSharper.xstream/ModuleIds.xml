@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="745AD63F-676D-4D1F-BF0F-15AB3158BF62" ModuleId="XStream.Core" />
+  <Module PersistentId="73DEC5C5-C593-4E48-B61E-6900932DEEF8" ModuleId="Xstream.Tests" />
+</Modules>

@@ -1,0 +1,78 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/f:AliasTest.cs" caret="166" fromTop="1" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/f:XmlStackTest.cs" caret="133" fromTop="4" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Properties/f:AssemblyInfo.cs" caret="906" fromTop="5" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:Converter.cs" caret="59" fromTop="2" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:Unmarshaller.cs" caret="127" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:IMapper.cs" caret="0" fromTop="0" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:UnmarshallingContext.cs" caret="1130" fromTop="8" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/f:XStreamAssert.cs" caret="1241" fromTop="8" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/d:Collections/f:ArrayConverterTest.cs" caret="1961" fromTop="17" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:MarshallingContext.cs" caret="1983" fromTop="13" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/f:ObjectConverterTest.cs" caret="1262" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/d:Collections/f:ArrayConverter.cs" caret="1448" fromTop="34" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:ConversionException.cs" caret="29" fromTop="1" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:DontSerialiseAttribute.cs" caret="31" fromTop="1" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:Marshaller.cs" caret="2031" fromTop="52" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:TODO.cs" caret="0" fromTop="0" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:Xmlifier.cs" caret="0" fromTop="0" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:SingleValueConverter.cs" caret="222" fromTop="5" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:ConverterLookup.cs" caret="809" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/f:AliasTest.cs" caret="166" fromTop="1" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/f:XmlStackTest.cs" caret="133" fromTop="4" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Properties/f:AssemblyInfo.cs" caret="906" fromTop="5" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:UnmarshallingContext.cs" caret="129" fromTop="2" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:Unmarshaller.cs" caret="2969" fromTop="63" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:Unmarshaller.cs" caret="2898" fromTop="14" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:Converter.cs" caret="379" fromTop="1" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:Converter.cs" caret="59" fromTop="2" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/d:Collections/f:ArrayConverter.cs" caret="1448" fromTop="34" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:Unmarshaller.cs" caret="127" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:MarshallingContext.cs" caret="491" fromTop="10" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:MarshallingContext.cs" caret="2093" fromTop="15" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:UnmarshallingContext.cs" caret="1130" fromTop="9" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/d:Collections/f:ArrayConverterTest.cs" caret="1961" fromTop="53" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:MarshallingContext.cs" caret="1983" fromTop="13" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:ConversionException.cs" caret="29" fromTop="1" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:DontSerialiseAttribute.cs" caret="31" fromTop="1" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:Marshaller.cs" caret="2031" fromTop="29" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:Marshaller.cs" caret="1709" fromTop="29" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:ConverterLookup.cs" caret="3285" fromTop="67" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:ConverterLookup.cs" caret="2487" fromTop="6" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="assembly" priority="0" />
+      <Item value="InternalsVisibleTo" priority="0" />
+      <Item value="converter" priority="0" />
+      <Item value="Xmlifier`0" priority="0" />
+      <Item value="type" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@xstream.Utilities.Xmlifier">
+      <Item value="XmlifyNode`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

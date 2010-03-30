@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{73DEC5C5-C593-4E48-B61E-6900932DEEF8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xstream.Tests</RootNamespace>
+    <AssemblyName>XStream.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.4.6.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AliasTest.cs" />
+    <Compile Include="AutoPropertiesTest.cs" />
+    <Compile Include="CircularReferenceTest.cs" />
+    <Compile Include="Converters\Collections\ArrayConverterTest.cs" />
+    <Compile Include="Converters\Collections\CollectionConverterTestCase.cs" />
+    <Compile Include="Converters\Collections\DictionaryConverterTest.cs" />
+    <Compile Include="Converters\Collections\ListConverterTest.cs" />
+    <Compile Include="Converters\ConverterTestCase.cs" />
+    <Compile Include="Converters\EnumConverterTest.cs" />
+    <Compile Include="Converters\HashtableConverterTest.cs" />
+    <Compile Include="Converters\NullConverterTest.cs" />
+    <Compile Include="Converters\ObjectConverterTest.cs" />
+    <Compile Include="Converters\SingleValueConverterTest.cs" />
+    <Compile Include="DontSerialiseAttributeTest.cs" />
+    <Compile Include="DynamicInstanceBuilderTest.cs" />
+    <Compile Include="GenericsTest.cs" />
+    <Compile Include="MiscellaneousTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReaderTest.cs" />
+    <Compile Include="ReleaseTest.cs" />
+    <Compile Include="XmlifierTest.cs" />
+    <Compile Include="XmlStackTest.cs" />
+    <Compile Include="XStreamAssert.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XStream.Core\XStream.Core.csproj">
+      <Project>{745AD63F-676D-4D1F-BF0F-15AB3158BF62}</Project>
+      <Name>XStream.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="accepatance\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
