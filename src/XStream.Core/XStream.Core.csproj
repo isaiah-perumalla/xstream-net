@@ -8,8 +8,8 @@
     <ProjectGuid>{745AD63F-676D-4D1F-BF0F-15AB3158BF62}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XStream.Core</RootNamespace>
-    <AssemblyName>XStream.Core</AssemblyName>
+    <RootNamespace>Xstream.Core</RootNamespace>
+    <AssemblyName>Xstream.Core</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alias.cs" />
     <Compile Include="AlreadySerialisedDictionary.cs" />
     <Compile Include="Attributes.cs" />
     <Compile Include="Constants.cs" />

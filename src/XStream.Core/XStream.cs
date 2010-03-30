@@ -1,21 +1,22 @@
-using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-using xstream.Converters;
-using XStream.Core;
-using XStream.Core.Converters;
+using xstream;
+using Xstream.Core;
+using Xstream.Core.Converters;
+using Xstream.Core.Mappers;
 
-namespace xstream {
+namespace Xstream.Core {
     public class XStream {
         private readonly ConverterLookup converterLookup = new ConverterLookup();
-        private readonly Aliases aliases = new Aliases();
+        
         private readonly List<Assembly> assemblies = new List<Assembly>();
+        private IMapper mapper;
 
         public string ToXml(object value) {
             StringBuilder stringBuilder = new StringBuilder();
             XWriter writer = new XWriter(stringBuilder);
-            MarshallingContext context = new MarshallingContext(writer, converterLookup, aliases);
+            MarshallingContext context = new MarshallingContext(writer, converterLookup, mapper);
             context.ConvertOriginal(value);
             return stringBuilder.ToString();
         }
@@ -26,13 +27,11 @@ namespace xstream {
 
         public object FromXml(string s) {
             XReader reader = new XReader(s);
-            UnmarshallingContext context = new UnmarshallingContext(reader, converterLookup, aliases, assemblies);
+            UnmarshallingContext context = new UnmarshallingContext(reader, converterLookup, mapper, assemblies);
             return context.ConvertOriginal();
         }
 
-        public void AddAlias(Alias alias) {
-            aliases.Add(alias);
-        }
+      
 
         public void Load(params Assembly[] externalAssemblies) {
             if (externalAssemblies == null) return;

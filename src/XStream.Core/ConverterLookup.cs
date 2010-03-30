@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using xstream.Converters;
 using xstream.Converters.Collections;
-using XStream.Core.Converters;
-using XStream.Core.Converters.Collections;
+using Xstream.Core.Converters;
+using Xstream.Core.Converters.Collections;
 
-namespace XStream.Core {
+namespace Xstream.Core {
     internal class ConverterLookup {
         private static readonly List<Converter> standardConverters = new List<Converter>();
         private readonly List<Converter> converters = new List<Converter>();

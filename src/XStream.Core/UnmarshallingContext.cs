@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using XStream.Core;
-using XStream.Core.Converters;
+using Xstream.Core;
+using Xstream.Core.Converters;
+using Xstream.Core.Mappers;
 
 
 namespace xstream {
@@ -10,13 +11,13 @@ namespace xstream {
         private readonly Dictionary<string, object> alreadyDeserialised = new Dictionary<string, object>();
         private readonly XStreamReader reader;
         private readonly ConverterLookup converterLookup;
-        private readonly Aliases aliases;
+        private readonly IMapper _mapper;
         private readonly List<Assembly> assemblies;
 
-        internal UnmarshallingContext(XStreamReader reader, ConverterLookup converterLookup, Aliases aliases, List<Assembly> assemblies) {
+        internal UnmarshallingContext(XStreamReader reader, ConverterLookup converterLookup, IMapper mapper, List<Assembly> assemblies) {
             this.reader = reader;
             this.converterLookup = converterLookup;
-            this.aliases = aliases;
+            _mapper = mapper;
             this.assemblies = assemblies;
         }
 
@@ -39,11 +40,7 @@ namespace xstream {
         }
 
         private Type TypeToUse(string nodeName) {
-            foreach (Alias alias in aliases) {
-                Type type;
-                if (alias.TryGetType(nodeName, out type))
-                    return type;
-            }
+            
             string typeName = reader.GetAttribute(Attributes.classType);
             return GetTypeFromOtherAssemblies(typeName);
         }

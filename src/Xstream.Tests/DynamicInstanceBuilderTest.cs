@@ -1,6 +1,7 @@
 using System;
 using NUnit.Framework;
 using xstream.Converters;
+using Xstream.Core;
 
 namespace xstream {
     [TestFixture]

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Reflection;
 using System.Reflection.Emit;
-using XStream.Core;
+using Xstream.Core;
 
 namespace xstream {
     internal class DynamicInstanceBuilder {

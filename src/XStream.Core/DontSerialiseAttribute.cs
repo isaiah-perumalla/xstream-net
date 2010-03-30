@@ -1,5 +1,5 @@
 using System;
 
-namespace XStream.Core {
+namespace Xstream.Core {
     public class DontSerialiseAttribute : Attribute {}
 }

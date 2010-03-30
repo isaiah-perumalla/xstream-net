@@ -1,6 +1,6 @@
 using System;
 
-namespace XStream.Core {
+namespace Xstream.Core {
     public class ConversionException : Exception {
         public ConversionException(string message) : base(message) {}
 

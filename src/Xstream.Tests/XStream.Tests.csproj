@@ -74,9 +74,9 @@
     <Compile Include="XStreamAssert.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\XStream.Core\XStream.Core.csproj">
+    <ProjectReference Include="..\XStream.Core\Xstream.Core.csproj">
       <Project>{745AD63F-676D-4D1F-BF0F-15AB3158BF62}</Project>
-      <Name>XStream.Core</Name>
+      <Name>Xstream.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

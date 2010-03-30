@@ -2,15 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using NUnit.Framework;
-using XStream.Core;
+using xstream;
+using Xstream.Core;
 
-namespace xstream {
+namespace Xstream.Tests {
     [TestFixture]
     public class ReleaseTest {
         private static readonly List<Type> publicTypes = new List<Type>();
 
         public ReleaseTest() {
-            publicTypes.Add(typeof (XStream));
+            publicTypes.Add(typeof (Core.XStream));
             publicTypes.Add(typeof (MarshallingContext));
             publicTypes.Add(typeof (UnmarshallingContext));
             publicTypes.Add(typeof (DontSerialiseAttribute));

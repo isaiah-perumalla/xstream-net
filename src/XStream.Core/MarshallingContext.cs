@@ -1,22 +1,20 @@
 using System;
-using xstream.Converters;
-using XStream.Core;
-using XStream.Core.Converters;
-using XStream.Core.Mappers;
+using xstream;
+using Xstream.Core.Converters;
+using Xstream.Core.Mappers;
 using xstream.Utilities;
 
-namespace xstream {
+namespace Xstream.Core {
     public class MarshallingContext {
         private readonly AlreadySerialisedDictionary alreadySerialised = new AlreadySerialisedDictionary();
         private readonly XStreamWriter writer;
         private readonly ConverterLookup converterLookup;
-        private readonly Aliases aliases;
-        private IMapper mapper;
+        private readonly IMapper _mapper;
 
-        internal MarshallingContext(XStreamWriter writer, ConverterLookup converterLookup, Aliases aliases) {
+        internal MarshallingContext(XStreamWriter writer, ConverterLookup converterLookup, IMapper mapper) {
             this.writer = writer;
             this.converterLookup = converterLookup;
-            this.aliases = aliases;
+            _mapper = mapper;
         }
 
         internal void ConvertAnother(object value) {
@@ -42,13 +40,7 @@ namespace xstream {
 
         private void StartNode(object value) {
             Type type = value != null ? value.GetType() : typeof (object);
-            foreach (Alias alias in aliases) {
-                string nodeAlias;
-                if (alias.TryGetAlias(type, out nodeAlias)) {
-                    writer.StartNode(nodeAlias);
-                    return;
-                }
-            }
+          
 
             writer.StartNode(Xmlifier.XmlifyNode(type));
             writer.WriteAttribute(Attributes.classType, type.AssemblyQualifiedName);

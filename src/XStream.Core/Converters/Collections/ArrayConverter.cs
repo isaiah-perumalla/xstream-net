@@ -1,7 +1,7 @@
 using System;
 using xstream;
 
-namespace XStream.Core.Converters.Collections {
+namespace Xstream.Core.Converters.Collections {
     internal class ArrayConverter : Converter {
         private const string ARRAY_TYPE = "array-type";
 

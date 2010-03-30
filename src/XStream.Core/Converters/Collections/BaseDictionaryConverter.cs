@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
-using XStream.Core.Converters;
+using Xstream.Core;
+using Xstream.Core.Converters;
 
 namespace xstream.Converters.Collections {
     internal abstract class BaseDictionaryConverter<T> : Converter where T : IDictionary {

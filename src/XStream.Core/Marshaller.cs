@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using xstream;
 
-namespace XStream.Core
+namespace Xstream.Core
 {
     internal class Marshaller
     {

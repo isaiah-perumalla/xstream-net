@@ -1,5 +1,6 @@
 using System.Collections;
 using NUnit.Framework;
+using Xstream.Tests.Converters;
 
 namespace xstream.Converters {
     [TestFixture]

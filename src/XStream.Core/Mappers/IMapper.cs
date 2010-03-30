@@ -1,4 +1,4 @@
-﻿namespace XStream.Core.Mappers
+﻿namespace Xstream.Core.Mappers
 {
     internal interface IMapper
     {

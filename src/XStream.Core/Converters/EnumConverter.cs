@@ -1,5 +1,6 @@
 using System;
-using XStream.Core.Converters;
+using Xstream.Core;
+using Xstream.Core.Converters;
 
 namespace xstream.Converters {
     internal class EnumConverter : Converter {

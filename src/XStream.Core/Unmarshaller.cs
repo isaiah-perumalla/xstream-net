@@ -3,10 +3,10 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using xstream;
-using XStream.Core.Converters;
+using Xstream.Core.Converters;
 using xstream.Utilities;
 
-namespace XStream.Core {
+namespace Xstream.Core {
     internal class Unmarshaller {
         private readonly XStreamReader reader;
         private readonly UnmarshallingContext context;

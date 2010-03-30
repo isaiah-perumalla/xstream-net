@@ -1,9 +1,10 @@
 using System;
 using NUnit.Framework;
+using xstream;
 
-namespace xstream.Converters {
+namespace Xstream.Tests.Converters {
     public abstract class ConverterTestCase {
-        protected XStream xstream = new XStream();
+        protected Core.XStream xstream = new Core.XStream();
 
         internal void SerialiseAssertAndDeserialise(object value, string expectedSerialisedObject, AssertEqualsDelegate equalsDelegate) {
             EqualsIgnoreWhitespace(expectedSerialisedObject, SerialiseAndDeserialise(value, equalsDelegate));

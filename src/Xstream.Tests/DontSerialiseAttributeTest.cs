@@ -1,7 +1,8 @@
 using System.Xml.Serialization;
 using NUnit.Framework;
 using xstream.Converters;
-using XStream.Core;
+using Xstream.Core;
+using Xstream.Tests.Converters;
 
 namespace xstream {
     [TestFixture]
