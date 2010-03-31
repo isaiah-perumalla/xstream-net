@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace Xstream.Core.Mappers
 {
@@ -8,5 +9,6 @@ namespace Xstream.Core.Mappers
     }
 
     internal interface IFieldProcessor {
+        void ProcessField(FieldInfo field, string serializeFieldName);
     }
 }

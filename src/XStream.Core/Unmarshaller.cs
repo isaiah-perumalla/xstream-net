@@ -12,7 +12,7 @@ namespace Xstream.Core {
         private readonly XStreamReader reader;
         private readonly UnmarshallingContext context;
         private readonly ConverterLookup converterLookup;
-        private IMapper mapper = new DefaultMapper();
+        private readonly IMapper mapper = new DefaultMapper();
 
         public Unmarshaller(XStreamReader reader, UnmarshallingContext context, ConverterLookup converterLookup) {
             this.reader = reader;
@@ -63,11 +63,28 @@ namespace Xstream.Core {
             else
                 return Unmarshal(fieldType);
         }
+
+        public void ProcessField(FieldInfo field, string serializeFieldName) {
+            
+        }
     }
 
     internal class DefaultMapper : IMapper {
         public void ProcessFieldsIn(Type type, IFieldProcessor fieldProcessor) {
-            
+            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
+            foreach (var field in fields)
+            {
+                var serializeFieldName = field.Name;
+                if (field.GetCustomAttributes(typeof(DontSerialiseAttribute), true).Length != 0) continue;
+                if (field.GetCustomAttributes(typeof(XmlIgnoreAttribute), true).Length != 0) continue;
+                if (typeof(MulticastDelegate).IsAssignableFrom(field.FieldType)) continue;
+                Match match = Constants.AutoPropertyNamePattern.Match(field.Name);
+                if (match.Success)
+                    serializeFieldName = match.Result("$1");
+
+
+                fieldProcessor.ProcessField(field, serializeFieldName);
+            }
         }
     }
 }
