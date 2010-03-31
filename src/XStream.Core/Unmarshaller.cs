@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Xml.Serialization;
 using xstream;
 using Xstream.Core.Converters;
 using Xstream.Core.Mappers;
@@ -57,43 +53,11 @@ namespace Xstream.Core
 
         private object ConvertField(Type fieldType)
         {
-            string classAttribute = reader.GetAttribute(Attributes.classType);
+            var classAttribute = reader.GetAttribute(Attributes.classType);
             if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(Xmlifier.UnXmlify(classAttribute));
-            Converter converter = converterLookup.GetConverter(fieldType);
-            if (converter != null)
-                return converter.FromXml(reader, context);
-            else
-                return Unmarshal(fieldType);
+            var converter = converterLookup.GetConverter(fieldType);
+            return converter != null ? converter.FromXml(reader, context) : Unmarshal(fieldType);
         }
 
-        public void ProcessField(FieldInfo field, string serializeFieldName)
-        {
-            reader.MoveDown(serializeFieldName);
-            //            field.SetValue(currentObject, ConvertField(field.FieldType));
-            reader.MoveUp();
-
-        }
-    }
-
-
-    internal class DefaultMapper : IMapper
-    {
-        public IEnumerable<Field> GetSerializableFieldsIn(Type type)
-        {
-            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
-            foreach (var field in fields)
-            {
-                var serializeFieldName = field.Name;
-                if (field.GetCustomAttributes(typeof(DontSerialiseAttribute), true).Length != 0) continue;
-                if (field.GetCustomAttributes(typeof(XmlIgnoreAttribute), true).Length != 0) continue;
-                if (typeof(MulticastDelegate).IsAssignableFrom(field.FieldType)) continue;
-                Match match = Constants.AutoPropertyNamePattern.Match(field.Name);
-                if (match.Success)
-                    serializeFieldName = match.Result("$1");
-                yield return new Field(field, serializeFieldName);
-
-            }
-
-        }
     }
 }

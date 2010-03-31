@@ -62,6 +62,7 @@
     <Compile Include="Converters\TypeConverter.cs" />
     <Compile Include="DontSerialiseAttribute.cs" />
     <Compile Include="DynamicInstanceBuilder.cs" />
+    <Compile Include="Mappers\DefaultMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Marshaller.cs" />
     <Compile Include="MarshallingContext.cs" />
