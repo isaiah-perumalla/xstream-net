@@ -21,7 +21,7 @@ namespace Xstream.Core {
         }
 
         internal object Unmarshal(Type type) {
-            object result = context.Find();
+            var result = context.Find();
             if (result != null) return result;
             if (reader.GetAttribute(Attributes.Null) == true.ToString())
                 return null;
@@ -33,7 +33,7 @@ namespace Xstream.Core {
 
         private void UnmarshalAs(object result, Type type) {
             if (type.Equals(typeof (object))) return;
-            this.mapper.ProcessFieldsIn(type, this);
+//            this.mapper.ProcessFieldsIn(type, this);
             FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
             foreach (var field in fields)
             {
@@ -45,10 +45,10 @@ namespace Xstream.Core {
                 if (match.Success)
                     serializeFieldName = match.Result("$1");
 
-
                 reader.MoveDown(serializeFieldName);
-                field.SetValue(result, ConvertField(field.FieldType));
+            field.SetValue(result, ConvertField(field.FieldType));
                 reader.MoveUp();
+               
             }
 
             UnmarshalAs(result, type.BaseType);
@@ -65,6 +65,9 @@ namespace Xstream.Core {
         }
 
         public void ProcessField(FieldInfo field, string serializeFieldName) {
+            reader.MoveDown(serializeFieldName);
+//            field.SetValue(currentObject, ConvertField(field.FieldType));
+            reader.MoveUp();
             
         }
     }
