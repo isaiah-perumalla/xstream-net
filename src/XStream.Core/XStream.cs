@@ -27,21 +27,10 @@ namespace Xstream.Core {
 
         public object FromXml(string s) {
             XReader reader = new XReader(s);
-            UnmarshallingContext context = new UnmarshallingContext(reader, converterLookup, mapper, assemblies);
+            UnmarshallingContext context = new UnmarshallingContext(reader, converterLookup, mapper);
             return context.ConvertOriginal();
         }
 
-      
-
-        public void Load(params Assembly[] externalAssemblies) {
-            if (externalAssemblies == null) return;
-            assemblies.AddRange(externalAssemblies);
-        }
-
-        public void Unload(params Assembly[] externalAssemblies) {
-            if (externalAssemblies == null) return;
-            foreach (Assembly externalAssembly in externalAssemblies) assemblies.Remove(externalAssembly);
-        }
 
         public void Alias<T>(string typeAlias) {
             

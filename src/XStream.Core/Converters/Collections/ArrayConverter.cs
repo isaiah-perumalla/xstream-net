@@ -21,7 +21,7 @@ namespace Xstream.Core.Converters.Collections {
 
         public object FromXml(XStreamReader reader, UnmarshallingContext context) {
             int count = reader.NoOfChildren();
-            Array result = Array.CreateInstance(context.GetTypeFromOtherAssemblies(reader.GetAttribute(ARRAY_TYPE)), count);
+            Array result = Array.CreateInstance(Type.GetType(reader.GetAttribute(ARRAY_TYPE)), count);
             if (count != 0) {
                 reader.MoveDown();
                 for (int i = 0; i < count; i++) {
