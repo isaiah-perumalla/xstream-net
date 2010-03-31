@@ -40,8 +40,7 @@ namespace Xstream.Core {
                 if (match.Success) {
                     var propertyName = match.Result("$1");
                     reader.MoveDown(propertyName);
-                    PropertyInfo property = type.GetProperty(propertyName);
-                    property.SetValue(result, ConvertField(field.FieldType), null);
+                    field.SetValue(result, ConvertField(field.FieldType));
                     reader.MoveUp();
                 }
                 else {

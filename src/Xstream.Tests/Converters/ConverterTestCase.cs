@@ -7,7 +7,7 @@ namespace Xstream.Tests.Converters {
         protected Core.XStream xstream = new Core.XStream();
 
         internal void SerialiseAssertAndDeserialise(object value, string expectedSerialisedObject, AssertEqualsDelegate equalsDelegate) {
-            EqualsIgnoreWhitespace(expectedSerialisedObject, SerialiseAndDeserialise(value, equalsDelegate));
+            AssertXmlEquals(expectedSerialisedObject, SerialiseAndDeserialise(value, equalsDelegate));
         }
 
         internal void SerialiseAssertAndDeserialise(object value, string expectedSerialisedObject) {
@@ -25,7 +25,7 @@ namespace Xstream.Tests.Converters {
             return actualSerialisedObject;
         }
 
-        private static void EqualsIgnoreWhitespace(string expected, string actual) {
+        protected static void AssertXmlEquals(string expected, string actual) {
             Assert.AreEqual(RemoveWhitespace(expected), RemoveWhitespace(actual));
         }
 

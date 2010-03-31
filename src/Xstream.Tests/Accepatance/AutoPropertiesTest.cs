@@ -7,7 +7,13 @@ namespace Xstream.Tests.Accepatance {
         [Test]
         public void HandlesAutoProperties() {
             var objectWithAnAutoProperty = new ClassWithAnAutoProperty {AutoProperty = 10};
-            SerialiseAndDeserialise(objectWithAnAutoProperty);
+            const string serializedXml = @"<ClassWithAnAutoProperty class=" +
+                                        "\"Xstream.Tests.Accepatance.AutoPropertiesTest+ClassWithAnAutoProperty, XStream.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\">" +
+                                        "<AutoProperty>10</AutoProperty></ClassWithAnAutoProperty>";
+
+            AssertXmlEquals(serializedXml, xstream.ToXml(objectWithAnAutoProperty));
+            Assert.AreEqual(objectWithAnAutoProperty, xstream.FromXml(serializedXml));
+            
         }
 
         internal class ClassWithAnAutoProperty {
