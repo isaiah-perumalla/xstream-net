@@ -10,12 +10,13 @@ namespace Xstream.Core
         private readonly XStreamReader reader;
         private readonly UnmarshallingContext context;
         private readonly ConverterLookup converterLookup;
-        private readonly IMapper mapper = new DefaultMapper();
+        private readonly IMapper mapper;
 
 
-        public Unmarshaller(XStreamReader reader, UnmarshallingContext context, ConverterLookup converterLookup)
+        public Unmarshaller(XStreamReader reader, UnmarshallingContext context, ConverterLookup converterLookup, IMapper mapper)
         {
             this.reader = reader;
+            this.mapper = mapper;
             this.context = context;
             this.converterLookup = converterLookup;
         }

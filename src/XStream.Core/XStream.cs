@@ -11,7 +11,7 @@ namespace Xstream.Core {
         private readonly ConverterLookup converterLookup = new ConverterLookup();
         
         private readonly List<Assembly> assemblies = new List<Assembly>();
-        private IMapper mapper;
+        private IMapper mapper = new DefaultMapper();
 
         public string ToXml(object value) {
             StringBuilder stringBuilder = new StringBuilder();

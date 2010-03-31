@@ -36,7 +36,7 @@ namespace xstream {
             Type type = TypeToUse(nodeName);
             Converter converter = converterLookup.GetConverter(type);
             if (converter != null) return converter.FromXml(reader, this);
-            return new Unmarshaller(reader, this, converterLookup).Unmarshal(type);
+            return new Unmarshaller(reader, this, converterLookup, _mapper).Unmarshal(type);
         }
 
         private Type TypeToUse(string nodeName) {

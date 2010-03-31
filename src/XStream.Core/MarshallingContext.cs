@@ -28,7 +28,7 @@ namespace Xstream.Core {
                 writer.WriteAttribute(Attributes.references, alreadySerialised[value]);
             else {
                 alreadySerialised.Add(value, writer.CurrentPath);
-                new Marshaller(writer, this).Marshal(value);
+                new Marshaller(writer, this, mapper).Marshal(value);
             }
         }
 

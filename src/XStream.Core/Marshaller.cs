@@ -9,11 +9,12 @@ namespace Xstream.Core
     {
         private readonly XStreamWriter writer;
         private readonly MarshallingContext context;
-        private IMapper mapper = new DefaultMapper();
+        private readonly IMapper mapper ;
 
-        public Marshaller(XStreamWriter writer, MarshallingContext context)
+        public Marshaller(XStreamWriter writer, MarshallingContext context, IMapper mapper)
         {
             this.writer = writer;
+            this.mapper = mapper;
             this.context = context;
         }
 
