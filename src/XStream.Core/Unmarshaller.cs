@@ -33,13 +33,14 @@ namespace Xstream.Core {
             if (type.Equals(typeof (object))) return;
             FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
             foreach (var field in fields) {
+                var serializeFieldName = field.Name;
                 if (field.GetCustomAttributes(typeof (DontSerialiseAttribute), true).Length != 0) continue;
                 if (field.GetCustomAttributes(typeof (XmlIgnoreAttribute), true).Length != 0) continue;
                 if (typeof (MulticastDelegate).IsAssignableFrom(field.FieldType)) continue;
                 Match match = Constants.AutoPropertyNamePattern.Match(field.Name);
                 if (match.Success) {
-                    var propertyName = match.Result("$1");
-                    reader.MoveDown(propertyName);
+                    serializeFieldName = match.Result("$1");
+                    reader.MoveDown(serializeFieldName);
                     field.SetValue(result, ConvertField(field.FieldType));
                     reader.MoveUp();
                 }
