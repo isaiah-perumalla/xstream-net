@@ -4,13 +4,15 @@ using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using xstream;
 using Xstream.Core.Converters;
+using Xstream.Core.Mappers;
 using xstream.Utilities;
 
 namespace Xstream.Core {
-    internal class Unmarshaller {
+    internal class Unmarshaller : IFieldProcessor {
         private readonly XStreamReader reader;
         private readonly UnmarshallingContext context;
         private readonly ConverterLookup converterLookup;
+        private IMapper mapper = new DefaultMapper();
 
         public Unmarshaller(XStreamReader reader, UnmarshallingContext context, ConverterLookup converterLookup) {
             this.reader = reader;
@@ -31,6 +33,7 @@ namespace Xstream.Core {
 
         private void UnmarshalAs(object result, Type type) {
             if (type.Equals(typeof (object))) return;
+            this.mapper.ProcessFieldsIn(type, this);
             FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy);
             foreach (var field in fields)
             {
@@ -59,6 +62,12 @@ namespace Xstream.Core {
                 return converter.FromXml(reader, context);
             else
                 return Unmarshal(fieldType);
+        }
+    }
+
+    internal class DefaultMapper : IMapper {
+        public void ProcessFieldsIn(Type type, IFieldProcessor fieldProcessor) {
+            
         }
     }
 }
