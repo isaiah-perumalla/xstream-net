@@ -1,8 +1,7 @@
 using System;
 using System.Reflection;
-using System.Text.RegularExpressions;
-using System.Xml.Serialization;
 using xstream;
+using Xstream.Core.Mappers;
 
 namespace Xstream.Core
 {
@@ -10,6 +9,7 @@ namespace Xstream.Core
     {
         private readonly XStreamWriter writer;
         private readonly MarshallingContext context;
+        private IMapper mapper = new DefaultMapper();
 
         public Marshaller(XStreamWriter writer, MarshallingContext context)
         {
@@ -26,25 +26,20 @@ namespace Xstream.Core
         {
             if (type.Equals(typeof (object))) return;
             FieldInfo[] fields = type.GetFields(Constants.BINDINGFlags);
-            foreach (var field in fields)
+            foreach (var field in mapper.GetSerializableFieldsIn(type))
             {
-                string nodeName = field.Name;
-                Match match = Constants.AutoPropertyNamePattern.Match(field.Name);
-                if (match.Success) nodeName = match.Result("$1");
-                if (field.GetCustomAttributes(typeof (DontSerialiseAttribute), true).Length != 0) continue;
-                if (field.GetCustomAttributes(typeof (XmlIgnoreAttribute), true).Length != 0) continue;
-                if (typeof (MulticastDelegate).IsAssignableFrom(field.FieldType)) continue;
-                writer.StartNode(nodeName);
+               
+                writer.StartNode(field.SerializedName);
                 WriteClassNameIfNeedBe(value, field);
-                context.ConvertAnother(field.GetValue(value));
+                context.ConvertAnother(field.GetObjectFrom(value));
                 writer.EndNode();
             }
             MarshalAs(value, type.BaseType);
         }
 
-        private void WriteClassNameIfNeedBe(object value, FieldInfo field)
+        private void WriteClassNameIfNeedBe(object value, Field field)
         {
-            object fieldValue = field.GetValue(value);
+            object fieldValue = field.GetObjectFrom(value);
             if (fieldValue == null) return;
             Type actualType = fieldValue.GetType();
             if (!field.FieldType.Equals(actualType))

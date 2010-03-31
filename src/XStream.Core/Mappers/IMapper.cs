@@ -35,6 +35,10 @@ namespace Xstream.Core.Mappers
             fieldInfo.SetValue(result, value);
             
         }
+
+        public object GetObjectFrom(object containingObject) {
+            return fieldInfo.GetValue(containingObject);
+        }
     }
 
    
