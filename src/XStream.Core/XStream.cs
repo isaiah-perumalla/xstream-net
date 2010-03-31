@@ -7,12 +7,12 @@ namespace Xstream.Core {
     public class XStream {
         private readonly ConverterLookup converterLookup = new ConverterLookup();
 
-        private IMapper mapper = new DefaultMapper();
+        private readonly IMapper mapper = new DefaultMapper();
 
         public string ToXml(object value) {
-            StringBuilder stringBuilder = new StringBuilder();
-            XWriter writer = new XWriter(stringBuilder);
-            MarshallingContext context = new MarshallingContext(writer, converterLookup, mapper);
+            var stringBuilder = new StringBuilder();
+            var writer = new XWriter(stringBuilder);
+            var context = new MarshallingContext(writer, converterLookup, mapper);
             context.ConvertOriginal(value);
             return stringBuilder.ToString();
         }
@@ -22,8 +22,8 @@ namespace Xstream.Core {
         }
 
         public object FromXml(string s) {
-            XReader reader = new XReader(s);
-            UnmarshallingContext context = new UnmarshallingContext(reader, converterLookup, mapper);
+            var reader = new XReader(s);
+            var context = new UnmarshallingContext(reader, converterLookup, mapper);
             return context.ConvertOriginal();
         }
 

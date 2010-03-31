@@ -1,10 +1,9 @@
 using NUnit.Framework;
-using xstream.Converters;
 using Xstream.Tests.Converters;
 
-namespace xstream {
+namespace Xstream.Tests {
     [TestFixture]
-    public class MiscellaneousTest : ConverterTestCase {
+    public class OmitStaticAndConstantFieldsTest : ConverterTestCase {
         [Test]
         public void DoesntSerialiseConstants() {
             Assert.AreEqual(false, xstream.ToXml(new ObjectWithConstantAndStatic()).Contains(ObjectWithConstantAndStatic.constant));

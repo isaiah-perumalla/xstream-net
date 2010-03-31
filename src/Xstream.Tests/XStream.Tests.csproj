@@ -65,7 +65,7 @@
     <Compile Include="Accepatance\DontSerialiseAttributeTest.cs" />
     <Compile Include="Unit\DynamicInstanceBuilderTest.cs" />
     <Compile Include="GenericsTest.cs" />
-    <Compile Include="MiscellaneousTest.cs" />
+    <Compile Include="Accepatance\OmitStaticAndConstantFieldsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unit\ReaderTest.cs" />
     <Compile Include="Unit\ReleaseTest.cs" />

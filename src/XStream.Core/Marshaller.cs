@@ -26,10 +26,8 @@ namespace Xstream.Core
         private void MarshalAs(object value, Type type)
         {
             if (type.Equals(typeof (object))) return;
-            FieldInfo[] fields = type.GetFields(Constants.BINDINGFlags);
             foreach (var field in mapper.GetSerializableFieldsIn(type))
             {
-               
                 writer.StartNode(field.SerializedName);
                 WriteClassNameIfNeedBe(value, field);
                 context.ConvertAnother(field.GetObjectFrom(value));
