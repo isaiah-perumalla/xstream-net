@@ -20,7 +20,7 @@ namespace Xstream.Tests {
         }
     }
 
-    public class Software {
+    internal class Software {
         private readonly string name;
 
         public Software(string name) {
