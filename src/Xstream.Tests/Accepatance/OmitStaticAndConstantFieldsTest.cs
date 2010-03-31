@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using Xstream.Tests.Converters;
 
-namespace Xstream.Tests {
+namespace Xstream.Tests.Accepatance {
     [TestFixture]
     public class OmitStaticAndConstantFieldsTest : ConverterTestCase {
         [Test]

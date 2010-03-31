@@ -3,7 +3,7 @@ using NUnit.Framework;
 using xstream.Converters;
 using Xstream.Tests.Converters;
 
-namespace xstream {
+namespace Xstream.Tests {
     [TestFixture]
     public class GenericsTest : ConverterTestCase {
         [Test]
