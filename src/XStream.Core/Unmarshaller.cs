@@ -1,6 +1,5 @@
 using System;
 using xstream;
-using Xstream.Core.Converters;
 using Xstream.Core.Mappers;
 using xstream.Utilities;
 
@@ -35,9 +34,7 @@ namespace Xstream.Core
 
         private void UnmarshalAs(object result, Type type)
         {
-
             if (type.Equals(typeof(object))) return;
-
 
             foreach (var field in mapper.GetSerializableFieldsIn(type))
             {
@@ -45,7 +42,6 @@ namespace Xstream.Core
                 field.SetValue(result, ConvertField(field.FieldType));
                 reader.MoveUp();
             }
-
             UnmarshalAs(result, type.BaseType);
         }
 

@@ -63,15 +63,16 @@
     <Compile Include="Converters\ObjectConverterTest.cs" />
     <Compile Include="Converters\SingleValueConverterTest.cs" />
     <Compile Include="Accepatance\DontSerialiseAttributeTest.cs" />
-    <Compile Include="DynamicInstanceBuilderTest.cs" />
+    <Compile Include="Unit\DynamicInstanceBuilderTest.cs" />
     <Compile Include="GenericsTest.cs" />
     <Compile Include="MiscellaneousTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReaderTest.cs" />
-    <Compile Include="ReleaseTest.cs" />
-    <Compile Include="XmlifierTest.cs" />
-    <Compile Include="XmlStackTest.cs" />
-    <Compile Include="XStreamAssert.cs" />
+    <Compile Include="Unit\ReaderTest.cs" />
+    <Compile Include="Unit\ReleaseTest.cs" />
+    <Compile Include="Unit\DefaultMapperTests.cs" />
+    <Compile Include="Unit\XmlifierTest.cs" />
+    <Compile Include="Unit\XmlStackTest.cs" />
+    <Compile Include="Unit\XStreamAssert.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XStream.Core\Xstream.Core.csproj">
