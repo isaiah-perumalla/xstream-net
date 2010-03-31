@@ -40,8 +40,8 @@ namespace Xstream.Core {
 
         private void StartNode(object value) {
             Type type = value != null ? value.GetType() : typeof (object);
-          
 
+            //ToDo: use mapper to resolve type names
             writer.StartNode(Xmlifier.XmlifyNode(type));
             writer.WriteAttribute(Attributes.classType, type.AssemblyQualifiedName);
         }

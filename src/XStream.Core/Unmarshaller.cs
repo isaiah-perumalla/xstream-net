@@ -50,6 +50,7 @@ namespace Xstream.Core
 
         private object ConvertField(Type fieldType)
         {
+            //ToDo: use mapper to resolve type names
             var classAttribute = reader.GetAttribute(Attributes.classType);
             if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(Xmlifier.UnXmlify(classAttribute));
             var converter = converterLookup.GetConverter(fieldType);
