@@ -2,7 +2,7 @@ using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using Xstream.Core;
 
-namespace Xstream.Tests {
+namespace Xstream.Tests.Accepatance {
     
     [TestFixture]
     public class AliasTest  {

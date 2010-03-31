@@ -9,12 +9,12 @@ namespace Xstream.Core {
         private readonly AlreadySerialisedDictionary alreadySerialised = new AlreadySerialisedDictionary();
         private readonly XStreamWriter writer;
         private readonly ConverterLookup converterLookup;
-        private readonly IMapper _mapper;
+        private readonly IMapper mapper;
 
         internal MarshallingContext(XStreamWriter writer, ConverterLookup converterLookup, IMapper mapper) {
             this.writer = writer;
             this.converterLookup = converterLookup;
-            _mapper = mapper;
+            this.mapper = mapper;
         }
 
         internal void ConvertAnother(object value) {

@@ -49,9 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AliasTest.cs" />
-    <Compile Include="AutoPropertiesTest.cs" />
-    <Compile Include="CircularReferenceTest.cs" />
+    <Compile Include="Accepatance\AliasTest.cs" />
+    <Compile Include="Accepatance\AutoPropertiesTest.cs" />
+    <Compile Include="Accepatance\CircularReferenceTest.cs" />
     <Compile Include="Converters\Collections\ArrayConverterTest.cs" />
     <Compile Include="Converters\Collections\CollectionConverterTestCase.cs" />
     <Compile Include="Converters\Collections\DictionaryConverterTest.cs" />
@@ -62,7 +62,7 @@
     <Compile Include="Converters\NullConverterTest.cs" />
     <Compile Include="Converters\ObjectConverterTest.cs" />
     <Compile Include="Converters\SingleValueConverterTest.cs" />
-    <Compile Include="DontSerialiseAttributeTest.cs" />
+    <Compile Include="Accepatance\DontSerialiseAttributeTest.cs" />
     <Compile Include="DynamicInstanceBuilderTest.cs" />
     <Compile Include="GenericsTest.cs" />
     <Compile Include="MiscellaneousTest.cs" />
@@ -78,9 +78,6 @@
       <Project>{745AD63F-676D-4D1F-BF0F-15AB3158BF62}</Project>
       <Name>Xstream.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="accepatance\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

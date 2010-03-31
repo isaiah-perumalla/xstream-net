@@ -3,6 +3,7 @@ using System.Collections;
 using NUnit.Framework;
 using xstream.Converters;
 using xstream.Converters.Collections;
+using Xstream.Tests.Accepatance;
 
 namespace xstream {
     public abstract class XStreamAssert {

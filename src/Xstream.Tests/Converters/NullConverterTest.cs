@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Xstream.Tests.Accepatance;
 using Xstream.Tests.Converters;
 
 namespace xstream.Converters {

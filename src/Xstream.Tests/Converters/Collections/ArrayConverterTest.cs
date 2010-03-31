@@ -3,6 +3,7 @@ using NUnit.Framework;
 using xstream;
 using xstream.Converters;
 using xstream.Converters.Collections;
+using Xstream.Tests.Accepatance;
 
 namespace Xstream.Tests.Converters.Collections {
     [TestFixture]

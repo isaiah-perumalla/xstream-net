@@ -1,10 +1,9 @@
 using System.Xml.Serialization;
 using NUnit.Framework;
-using xstream.Converters;
 using Xstream.Core;
 using Xstream.Tests.Converters;
 
-namespace xstream {
+namespace Xstream.Tests.Accepatance {
     [TestFixture]
     public class DontSerialiseAttributeTest : ConverterTestCase {
         [Test]

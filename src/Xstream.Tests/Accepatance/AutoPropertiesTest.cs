@@ -1,8 +1,7 @@
 using NUnit.Framework;
-using xstream.Converters;
 using Xstream.Tests.Converters;
 
-namespace xstream {
+namespace Xstream.Tests.Accepatance {
     [TestFixture]
     public class AutoPropertiesTest : ConverterTestCase {
         [Test]

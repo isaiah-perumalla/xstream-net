@@ -1,0 +1,424 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\open_source\xstream_sharp\src\Xstream.Tests\bin\Debug\XStream.Tests.dll" total="46" errors="10" failures="7" not-run="1" inconclusive="0" ignored="1" skipped="0" invalid="0" date="2010-03-31" time="12:19:38">
+  <environment nunit-version="2.5.2.9222" clr-version="2.0.50727.1433" os-version="Microsoft Windows NT 5.1.2600 Service Pack 2" platform="Win32NT" cwd="C:\open_source\xstream_sharp\src" machine-name="LENOVO-B8EB9B6E" user="isaiah" user-domain="LENOVO-B8EB9B6E" />
+  <culture-info current-culture="en-GB" current-uiculture="en-US" />
+  <test-suite name="C:\open_source\xstream_sharp\src\Xstream.Tests\bin\Debug\XStream.Tests.dll" executed="True" success="False" time="1.406" asserts="0">
+    <results>
+      <test-suite name="xstream" executed="True" success="False" time="1.063" asserts="0">
+        <results>
+          <test-suite name="AutoPropertiesTest" executed="True" success="True" time="0.453" asserts="0">
+            <results>
+              <test-case name="xstream.AutoPropertiesTest.HandlesAutoProperties" executed="True" success="True" time="0.391" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite name="Converters" executed="True" success="False" time="0.484" asserts="0">
+            <results>
+              <test-suite name="Collections" executed="True" success="False" time="0.297" asserts="0">
+                <results>
+                  <test-suite name="DictionaryConverterTest" executed="True" success="False" time="0.219" asserts="0">
+                    <results>
+                      <test-case name="xstream.Converters.Collections.DictionaryConverterTest.ConvertsDictionary" executed="True" success="False" time="0.078" asserts="0">
+                        <failure>
+                          <message><![CDATA[System.ArgumentException : parsing "System.Collections.Generic.Dictionary`2[[System.Int32-xcomma-mscorlib-xcomma-Version-equals-2.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-b77a5c561934e089],[System.String-xcomma-mscorlib-xcomma-Version-equals-2.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-b77a5c561934e089]]-xcomma-mscorlib-xcomma-Version-equals-2.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-b77a5c561934e089\[(\d+)\]" - [x-y] range in reverse order.]]></message>
+                          <stack-trace><![CDATA[at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+at System.Text.RegularExpressions.RegexParser.ScanRegex()
+at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, Boolean useCache)
+at System.Text.RegularExpressions.Regex.Match(String input, String pattern)
+at xstream.Utilities.XmlStack.Push(String node) in C:\open_source\xstream_sharp\src\XStream.Core\XmlStack.cs:line 22
+at xstream.XWriter.StartNode(String name) in C:\open_source\xstream_sharp\src\XStream.Core\XStreamWriter.cs:line 30
+at Xstream.Core.MarshallingContext.StartNode(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 43
+at Xstream.Core.MarshallingContext.ConvertOriginal(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 36
+at Xstream.Core.XStream.ToXml(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\XStream.cs:line 20
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 22
+at xstream.Converters.Collections.DictionaryConverterTest.ConvertsDictionary() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\Collections\DictionaryConverterTest.cs:line 15
+]]></stack-trace>
+                        </failure>
+                      </test-case>
+                      <test-case name="xstream.Converters.Collections.DictionaryConverterTest.SignsUpOnlyForGenericDictionaries" executed="True" success="True" time="0.000" asserts="2" />
+                    </results>
+                  </test-suite>
+                  <test-suite name="ListConverterTest" executed="True" success="False" time="0.063" asserts="0">
+                    <results>
+                      <test-case name="xstream.Converters.Collections.ListConverterTest.ConvertsList" executed="True" success="True" time="0.063" asserts="4" />
+                      <test-case name="xstream.Converters.Collections.ListConverterTest.HandlesDerivedList" executed="True" success="False" time="0.000" asserts="0">
+                        <failure>
+                          <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                          <stack-trace><![CDATA[at Xstream.Core.Mappers.DefaultMapper.SerializedClassNameFor(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\Mappers\DefaultMapper.cs:line 15
+at Xstream.Core.MarshallingContext.StartNode(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 43
+at Xstream.Core.MarshallingContext.ConvertOriginal(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 36
+at Xstream.Core.Converters.Collections.ArrayConverter.ToXml(Object value, XStreamWriter writer, MarshallingContext context) in C:\open_source\xstream_sharp\src\XStream.Core\Converters\Collections\ArrayConverter.cs:line 19
+at Xstream.Core.MarshallingContext.ConvertAnother(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 22
+at Xstream.Core.Marshaller.MarshalAs(Object value, Type type) in C:\open_source\xstream_sharp\src\XStream.Core\Marshaller.cs:line 41
+at Xstream.Core.Marshaller.MarshalAs(Object value, Type type) in C:\open_source\xstream_sharp\src\XStream.Core\Marshaller.cs:line 44
+at Xstream.Core.Marshaller.Marshal(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\Marshaller.cs:line 25
+at Xstream.Core.MarshallingContext.ConvertObject(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 31
+at Xstream.Core.MarshallingContext.ConvertAnother(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 23
+at Xstream.Core.MarshallingContext.ConvertOriginal(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 37
+at Xstream.Core.XStream.ToXml(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\XStream.cs:line 20
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 22
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at xstream.Converters.Collections.ListConverterTest.HandlesDerivedList() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\Collections\ListConverterTest.cs:line 15
+]]></stack-trace>
+                        </failure>
+                      </test-case>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+              <test-suite name="EnumConverterTest" executed="True" success="True" time="0.016" asserts="0">
+                <results>
+                  <test-case name="xstream.Converters.EnumConverterTest.ConvertsEnums" executed="True" success="True" time="0.016" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite name="HashtableConverterTest" executed="True" success="False" time="0.078" asserts="0">
+                <results>
+                  <test-case name="xstream.Converters.HashtableConverterTest.ConvertsDerivedHashtables" executed="True" success="False" time="0.047" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.]]></message>
+                      <stack-trace><![CDATA[at System.ThrowHelper.ThrowKeyNotFoundException()
+at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+at Xstream.Core.UnmarshallingContext.Find() in C:\open_source\xstream_sharp\src\XStream.Core\UnmarshallingContext.cs:line 67
+at Xstream.Core.Unmarshaller.Unmarshal(Type type) in C:\open_source\xstream_sharp\src\XStream.Core\Unmarshaller.cs:line 22
+at Xstream.Core.Unmarshaller.ConvertField(Type fieldType) in C:\open_source\xstream_sharp\src\XStream.Core\Unmarshaller.cs:line 63
+at Xstream.Core.Unmarshaller.UnmarshalAs(Object result, Type type) in C:\open_source\xstream_sharp\src\XStream.Core\Unmarshaller.cs:line 49
+at Xstream.Core.Unmarshaller.Unmarshal(Type type) in C:\open_source\xstream_sharp\src\XStream.Core\Unmarshaller.cs:line 28
+at Xstream.Core.UnmarshallingContext.ConvertOriginal() in C:\open_source\xstream_sharp\src\XStream.Core\UnmarshallingContext.cs:line 38
+at Xstream.Core.Converters.Collections.ArrayConverter.FromXml(XStreamReader reader, UnmarshallingContext context) in C:\open_source\xstream_sharp\src\XStream.Core\Converters\Collections\ArrayConverter.cs:line 28
+at Xstream.Core.Unmarshaller.ConvertField(Type fieldType) in C:\open_source\xstream_sharp\src\XStream.Core\Unmarshaller.cs:line 61
+at Xstream.Core.Unmarshaller.UnmarshalAs(Object result, Type type) in C:\open_source\xstream_sharp\src\XStream.Core\Unmarshaller.cs:line 49
+at Xstream.Core.Unmarshaller.UnmarshalAs(Object result, Type type) in C:\open_source\xstream_sharp\src\XStream.Core\Unmarshaller.cs:line 53
+at Xstream.Core.Unmarshaller.Unmarshal(Type type) in C:\open_source\xstream_sharp\src\XStream.Core\Unmarshaller.cs:line 28
+at Xstream.Core.UnmarshallingContext.ConvertOriginal() in C:\open_source\xstream_sharp\src\XStream.Core\UnmarshallingContext.cs:line 38
+at Xstream.Core.XStream.FromXml(String s) in C:\open_source\xstream_sharp\src\XStream.Core\XStream.cs:line 31
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 24
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at xstream.Converters.HashtableConverterTest.ConvertsDerivedHashtables() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\HashtableConverterTest.cs:line 20
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="xstream.Converters.HashtableConverterTest.ConvertsHashtables" executed="True" success="False" time="0.016" asserts="0">
+                    <failure>
+                      <message><![CDATA[Xstream.Core.ConversionException : Couldn't deserialise from key]]></message>
+                      <stack-trace><![CDATA[at Xstream.Core.Mappers.DefaultMapper.GetTypeForSerializedName(String serializeTypeName) in C:\open_source\xstream_sharp\src\XStream.Core\Mappers\DefaultMapper.cs:line 29
+at Xstream.Core.UnmarshallingContext.ConvertOriginal() in C:\open_source\xstream_sharp\src\XStream.Core\UnmarshallingContext.cs:line 35
+at xstream.Converters.Collections.BaseDictionaryConverter`1.GetObject(UnmarshallingContext context, Object& key, Object& value, XStreamReader reader) in C:\open_source\xstream_sharp\src\XStream.Core\Converters\Collections\BaseDictionaryConverter.cs:line 51
+at xstream.Converters.Collections.BaseDictionaryConverter`1.FromXml(XStreamReader reader, UnmarshallingContext context) in C:\open_source\xstream_sharp\src\XStream.Core\Converters\Collections\BaseDictionaryConverter.cs:line 37
+at Xstream.Core.UnmarshallingContext.ConvertOriginal() in C:\open_source\xstream_sharp\src\XStream.Core\UnmarshallingContext.cs:line 37
+at Xstream.Core.XStream.FromXml(String s) in C:\open_source\xstream_sharp\src\XStream.Core\XStream.cs:line 31
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 24
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at xstream.Converters.HashtableConverterTest.ConvertsHashtables() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\HashtableConverterTest.cs:line 13
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite name="NullConverterTest" executed="True" success="False" time="0.000" asserts="0">
+                <results>
+                  <test-case name="xstream.Converters.NullConverterTest.InternalNulls" executed="True" success="True" time="0.000" asserts="2" />
+                  <test-case name="xstream.Converters.NullConverterTest.OriginalValueNull" executed="True" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at Xstream.Core.Mappers.DefaultMapper.SerializedClassNameFor(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\Mappers\DefaultMapper.cs:line 15
+at Xstream.Core.MarshallingContext.StartNode(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 43
+at Xstream.Core.MarshallingContext.ConvertOriginal(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 36
+at Xstream.Core.XStream.ToXml(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\XStream.cs:line 20
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 22
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at xstream.Converters.NullConverterTest.OriginalValueNull() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\NullConverterTest.cs:line 15
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite name="SingleValueConverterTest" executed="True" success="False" time="0.063" asserts="0">
+                <results>
+                  <test-case name="xstream.Converters.SingleValueConverterTest.ConvertsPrimitives" executed="True" success="True" time="0.047" asserts="14" />
+                  <test-case name="xstream.Converters.SingleValueConverterTest.HandlesNullablePrimitives" executed="True" success="False" time="0.000" asserts="1">
+                    <failure>
+                      <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object.]]></message>
+                      <stack-trace><![CDATA[at Xstream.Core.Mappers.DefaultMapper.SerializedClassNameFor(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\Mappers\DefaultMapper.cs:line 15
+at Xstream.Core.MarshallingContext.StartNode(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 43
+at Xstream.Core.MarshallingContext.ConvertOriginal(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 36
+at Xstream.Core.XStream.ToXml(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\XStream.cs:line 20
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 22
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at xstream.Converters.SingleValueConverterTest.HandlesNullablePrimitives() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\SingleValueConverterTest.cs:line 32
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite name="DontSerialiseAttributeTest" executed="True" success="False" time="0.016" asserts="0">
+            <results>
+              <test-case name="xstream.DontSerialiseAttributeTest.DoesntSerialiseFieldWithAttribute" executed="True" success="False" time="0.016" asserts="1">
+                <failure>
+                  <message><![CDATA[  Expected: 10
+  But was:  <System.Object>
+]]></message>
+                  <stack-trace><![CDATA[at xstream.DontSerialiseAttributeTest.DoesntSerialiseFieldWithAttribute() in C:\open_source\xstream_sharp\src\Xstream.Tests\DontSerialiseAttributeTest.cs:line 13
+]]></stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+          <test-suite name="DynamicInstanceBuilderTest" executed="True" success="True" time="0.031" asserts="0">
+            <results>
+              <test-case name="xstream.DynamicInstanceBuilderTest.InstantiatesClassWithParameterlessConstructor" executed="True" success="True" time="0.016" asserts="2" />
+              <test-case name="xstream.DynamicInstanceBuilderTest.InstantiatesPublicClassWithNoParameterlessConstructor" executed="True" success="True" time="0.016" asserts="2" />
+            </results>
+          </test-suite>
+          <test-suite name="Utilities" executed="True" success="False" time="0.031" asserts="0">
+            <results>
+              <test-suite name="XmlifierTest" executed="True" success="False" time="0.016" asserts="0">
+                <results>
+                  <test-case name="xstream.Utilities.XmlifierTest.HandlesGenerics" executed="True" success="False" time="0.016" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected string length 21 but was 27. Strings differ at index 0.
+  Expected: "xstream.GenericObject"
+  But was:  "Xstream.Tests.GenericObject"
+  -----------^
+]]></message>
+                      <stack-trace><![CDATA[at xstream.Utilities.XmlifierTest.HandlesGenerics() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\XmlifierTest.cs:line 10
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="xstream.Utilities.XmlifierTest.XmlifiesWithGenerics" executed="True" success="False" time="0.000" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected string length 21 but was 27. Strings differ at index 0.
+  Expected: "xstream.GenericObject"
+  But was:  "Xstream.Tests.GenericObject"
+  -----------^
+]]></message>
+                      <stack-trace><![CDATA[at xstream.Utilities.XmlifierTest.XmlifiesWithGenerics() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\XmlifierTest.cs:line 15
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite name="Xstream" executed="True" success="False" time="0.313" asserts="0">
+        <results>
+          <test-suite name="Tests" executed="True" success="False" time="0.313" asserts="0">
+            <results>
+              <test-suite name="AliasTest" executed="True" success="False" time="0.000" asserts="0">
+                <results>
+                  <test-case name="Xstream.Tests.AliasTest.ShouldAllowAliasingOfAClass" executed="False">
+                    <reason>
+                      <message><![CDATA[work in progress]]></message>
+                    </reason>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite name="CircularReferenceTest" executed="True" success="False" time="0.016" asserts="0">
+                <results>
+                  <test-case name="Xstream.Tests.CircularReferenceTest.HandlesCircularReferences" executed="True" success="False" time="0.016" asserts="5">
+                    <failure>
+                      <message><![CDATA[  Expected string length 189 but was 482. Strings differ at index 1.
+  Expected: "<Personclass="Xstream.Tests.Person,XStream.Tests,Version=1.0...."
+  But was:  "<Xstream.Tests.Person-xcomma-XStream.Tests-xcomma-Version-equ..."
+  ------------^
+]]></message>
+                      <stack-trace><![CDATA[at Xstream.Tests.Converters.ConverterTestCase.EqualsIgnoreWhitespace(String expected, String actual) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 29
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAssertAndDeserialise(Object value, String expectedSerialisedObject, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 10
+at Xstream.Tests.CircularReferenceTest.HandlesCircularReferences() in C:\open_source\xstream_sharp\src\Xstream.Tests\Accepatance\CircularReferenceTest.cs:line 22
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite name="Converters" executed="True" success="False" time="0.047" asserts="0">
+                <results>
+                  <test-suite name="Collections" executed="True" success="False" time="0.047" asserts="0">
+                    <results>
+                      <test-suite name="ArrayConverterTest" executed="True" success="False" time="0.047" asserts="0">
+                        <results>
+                          <test-case name="Xstream.Tests.Converters.Collections.ArrayConverterTest.ConvertsArray" executed="True" success="True" time="0.000" asserts="3" />
+                          <test-case name="Xstream.Tests.Converters.Collections.ArrayConverterTest.ConvertsTwoDimensionalArrays" executed="True" success="True" time="0.000" asserts="8" />
+                          <test-case name="Xstream.Tests.Converters.Collections.ArrayConverterTest.FiguresOutRepeatingObjectsEvenThroughArrays" executed="True" success="False" time="0.016" asserts="2">
+                            <failure>
+                              <message><![CDATA[  Expected: <ambiguousreferenceholder with gl>
+  But was:  <ambiguousreferenceholder with System.Object>
+]]></message>
+                              <stack-trace><![CDATA[at Xstream.Tests.XStreamAssert.AreEqual(Object expected, Object actual) in C:\open_source\xstream_sharp\src\Xstream.Tests\XStreamAssert.cs:line 24
+at Xstream.Tests.XStreamAssert.AreEqual(Object expected, Object actual) in C:\open_source\xstream_sharp\src\Xstream.Tests\XStreamAssert.cs:line 14
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 24
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at Xstream.Tests.Converters.Collections.ArrayConverterTest.FiguresOutRepeatingObjectsEvenThroughArrays() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\Collections\ArrayConverterTest.cs:line 21
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="Xstream.Tests.Converters.Collections.ArrayConverterTest.HandlesEmptyArrays" executed="True" success="True" time="0.016" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+              <test-suite name="GenericsTest" executed="True" success="False" time="0.047" asserts="0">
+                <results>
+                  <test-case name="Xstream.Tests.GenericsTest.FiguresOutNestedGenerics" executed="True" success="False" time="0.000" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.ArgumentException : parsing "Xstream.Tests.GenericObject`1[[Xstream.Tests.GenericObject`1[[System.Int32-xcomma-mscorlib-xcomma-Version-equals-2.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-b77a5c561934e089]]-xcomma-XStream.Tests-xcomma-Version-equals-1.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-null]]-xcomma-XStream.Tests-xcomma-Version-equals-1.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-null\[(\d+)\]" - [x-y] range in reverse order.]]></message>
+                      <stack-trace><![CDATA[at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+at System.Text.RegularExpressions.RegexParser.ScanRegex()
+at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, Boolean useCache)
+at System.Text.RegularExpressions.Regex.Match(String input, String pattern)
+at xstream.Utilities.XmlStack.Push(String node) in C:\open_source\xstream_sharp\src\XStream.Core\XmlStack.cs:line 22
+at xstream.XWriter.StartNode(String name) in C:\open_source\xstream_sharp\src\XStream.Core\XStreamWriter.cs:line 30
+at Xstream.Core.MarshallingContext.StartNode(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 43
+at Xstream.Core.MarshallingContext.ConvertOriginal(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 36
+at Xstream.Core.XStream.ToXml(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\XStream.cs:line 20
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 22
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at Xstream.Tests.GenericsTest.FiguresOutNestedGenerics() in C:\open_source\xstream_sharp\src\Xstream.Tests\GenericsTest.cs:line 21
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="Xstream.Tests.GenericsTest.HandlesGenericArray" executed="True" success="False" time="0.016" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.ArgumentException : parsing "Xstream.Tests.GenericObject`1[[System.Int32-xcomma-mscorlib-xcomma-Version-equals-2.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-b77a5c561934e089]]-array-xcomma-XStream.Tests-xcomma-Version-equals-1.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-null\[(\d+)\]" - [x-y] range in reverse order.]]></message>
+                      <stack-trace><![CDATA[at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+at System.Text.RegularExpressions.RegexParser.ScanRegex()
+at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, Boolean useCache)
+at System.Text.RegularExpressions.Regex.Match(String input, String pattern)
+at xstream.Utilities.XmlStack.Push(String node) in C:\open_source\xstream_sharp\src\XStream.Core\XmlStack.cs:line 22
+at xstream.XWriter.StartNode(String name) in C:\open_source\xstream_sharp\src\XStream.Core\XStreamWriter.cs:line 30
+at Xstream.Core.MarshallingContext.StartNode(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 43
+at Xstream.Core.MarshallingContext.ConvertOriginal(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 36
+at Xstream.Core.XStream.ToXml(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\XStream.cs:line 20
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 22
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at Xstream.Tests.GenericsTest.HandlesGenericArray() in C:\open_source\xstream_sharp\src\Xstream.Tests\GenericsTest.cs:line 26
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="Xstream.Tests.GenericsTest.SerialisesWhenFieldIsAmbiguousGeneric" executed="True" success="False" time="0.016" asserts="1">
+                    <failure>
+                      <message><![CDATA[  Expected: <ambiguousreferenceholder with t2 = 1 value t = 1, u = 100	generic class: System.Int32, System.Int32>
+  But was:  <ambiguousreferenceholder with System.Object>
+]]></message>
+                      <stack-trace><![CDATA[at Xstream.Tests.XStreamAssert.AreEqual(Object expected, Object actual) in C:\open_source\xstream_sharp\src\Xstream.Tests\XStreamAssert.cs:line 24
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 24
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at Xstream.Tests.GenericsTest.SerialisesWhenFieldIsAmbiguousGeneric() in C:\open_source\xstream_sharp\src\Xstream.Tests\GenericsTest.cs:line 16
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="Xstream.Tests.GenericsTest.WorksWithAGenericClass" executed="True" success="False" time="0.016" asserts="0">
+                    <failure>
+                      <message><![CDATA[System.ArgumentException : parsing "Xstream.Tests.GenericObject`1[[System.Int32-xcomma-mscorlib-xcomma-Version-equals-2.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-b77a5c561934e089]]-xcomma-XStream.Tests-xcomma-Version-equals-1.0.0.0-xcomma-Culture-equals-neutral-xcomma-PublicKeyToken-equals-null\[(\d+)\]" - [x-y] range in reverse order.]]></message>
+                      <stack-trace><![CDATA[at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+at System.Text.RegularExpressions.RegexParser.ScanRegex()
+at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, Boolean useCache)
+at System.Text.RegularExpressions.Regex.Match(String input, String pattern)
+at xstream.Utilities.XmlStack.Push(String node) in C:\open_source\xstream_sharp\src\XStream.Core\XmlStack.cs:line 22
+at xstream.XWriter.StartNode(String name) in C:\open_source\xstream_sharp\src\XStream.Core\XStreamWriter.cs:line 30
+at Xstream.Core.MarshallingContext.StartNode(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 43
+at Xstream.Core.MarshallingContext.ConvertOriginal(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\MarshallingContext.cs:line 36
+at Xstream.Core.XStream.ToXml(Object value) in C:\open_source\xstream_sharp\src\XStream.Core\XStream.cs:line 20
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 22
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at Xstream.Tests.GenericsTest.WorksWithAGenericClass() in C:\open_source\xstream_sharp\src\Xstream.Tests\GenericsTest.cs:line 11
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                </results>
+              </test-suite>
+              <test-suite name="MiscellaneousTest" executed="True" success="True" time="0.016" asserts="0">
+                <results>
+                  <test-case name="Xstream.Tests.MiscellaneousTest.DoesntSerialiseConstants" executed="True" success="True" time="0.000" asserts="1" />
+                  <test-case name="Xstream.Tests.MiscellaneousTest.DoesntSerialiseStatics" executed="True" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite name="ReleaseTest" executed="True" success="True" time="0.016" asserts="0">
+                <results>
+                  <test-case name="Xstream.Tests.ReleaseTest.AllClassesAreInternal" executed="True" success="True" time="0.016" asserts="0" />
+                </results>
+              </test-suite>
+              <test-suite name="Unit" executed="True" success="False" time="0.156" asserts="0">
+                <results>
+                  <test-suite name="Converters" executed="True" success="False" time="0.094" asserts="0">
+                    <results>
+                      <test-suite name="ObjectConverterTest" executed="True" success="False" time="0.094" asserts="0">
+                        <results>
+                          <test-case name="Xstream.Tests.Unit.Converters.ObjectConverterTest.ConvertsHouse" executed="True" success="True" time="0.000" asserts="10" />
+                          <test-case name="Xstream.Tests.Unit.Converters.ObjectConverterTest.ConvertsObject" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="Xstream.Tests.Unit.Converters.ObjectConverterTest.ConvertsPerson" executed="True" success="True" time="0.000" asserts="2" />
+                          <test-case name="Xstream.Tests.Unit.Converters.ObjectConverterTest.DoesntConvertDelegates" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="Xstream.Tests.Unit.Converters.ObjectConverterTest.HandlesAmbiguousReferences" executed="True" success="True" time="0.000" asserts="0" />
+                          <test-case name="Xstream.Tests.Unit.Converters.ObjectConverterTest.HandlesPrivateFieldsOfBaseClassWithSameName" executed="True" success="False" time="0.000" asserts="1">
+                            <failure>
+                              <message><![CDATA[  Expected: <derived i = 100 base i = 10>
+  But was:  <derived i = 100 base i = 100>
+]]></message>
+                              <stack-trace><![CDATA[at Xstream.Tests.XStreamAssert.AreEqual(Object expected, Object actual) in C:\open_source\xstream_sharp\src\Xstream.Tests\XStreamAssert.cs:line 24
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 24
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 18
+at Xstream.Tests.Unit.Converters.ObjectConverterTest.HandlesPrivateFieldsOfBaseClassWithSameName() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ObjectConverterTest.cs:line 38
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="Xstream.Tests.Unit.Converters.ObjectConverterTest.WorksWithArraysHoldingDerivedTypes" executed="True" success="False" time="0.047" asserts="4">
+                            <failure>
+                              <message><![CDATA[System.InvalidCastException : Unable to cast object of type 'System.Object' to type 'System.Array'.]]></message>
+                              <stack-trace><![CDATA[at Xstream.Tests.Unit.Converters.AmbiguousReferenceHolder.Equals(AmbiguousReferenceHolder ambiguousReferenceHolder) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ObjectConverterTest.cs:line 165
+at Xstream.Tests.Unit.Converters.AmbiguousReferenceHolder.Equals(Object obj) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ObjectConverterTest.cs:line 175
+at NUnit.Framework.Constraints.EqualConstraint.ObjectsEqual(Object expected, Object actual)
+at NUnit.Framework.Constraints.EqualConstraint.Matches(Object actual)
+at Xstream.Tests.XStreamAssert.AreEqual(Object expected, Object actual) in C:\open_source\xstream_sharp\src\Xstream.Tests\XStreamAssert.cs:line 24
+at Xstream.Tests.XStreamAssert.AreEqual(Object expected, Object actual) in C:\open_source\xstream_sharp\src\Xstream.Tests\XStreamAssert.cs:line 14
+at Xstream.Tests.Converters.ConverterTestCase.SerialiseAndDeserialise(Object value, AssertEqualsDelegate equalsDelegate) in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ConverterTestCase.cs:line 24
+at Xstream.Tests.Unit.Converters.ObjectConverterTest.WorksWithArraysHoldingDerivedTypes() in C:\open_source\xstream_sharp\src\Xstream.Tests\Unit\Converters\ObjectConverterTest.cs:line 33
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="Mappers" executed="True" success="True" time="0.016" asserts="0">
+                    <results>
+                      <test-suite name="DefaultMapperTest" executed="True" success="True" time="0.000" asserts="0">
+                        <results>
+                          <test-case name="Xstream.Tests.Unit.Mappers.DefaultMapperTest.CanMapAnOrdinaryClass" executed="True" success="True" time="0.000" asserts="2" />
+                          <test-case name="Xstream.Tests.Unit.Mappers.DefaultMapperTest.CanMapClassNameForArray" executed="True" success="True" time="0.000" asserts="2" />
+                          <test-case name="Xstream.Tests.Unit.Mappers.DefaultMapperTest.CanMapClassNameForInnerClass" executed="True" success="True" time="0.000" asserts="2" />
+                          <test-case name="Xstream.Tests.Unit.Mappers.DefaultMapperTest.CanMapNameAutoProperty" executed="True" success="True" time="0.000" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite name="ReaderTest" executed="True" success="True" time="0.016" asserts="0">
+                    <results>
+                      <test-case name="Xstream.Tests.Unit.ReaderTest.GetsCurrentNode" executed="True" success="True" time="0.000" asserts="1" />
+                      <test-case name="Xstream.Tests.Unit.ReaderTest.GetsCurrentPath" executed="True" success="True" time="0.000" asserts="4" />
+                      <test-case name="Xstream.Tests.Unit.ReaderTest.MovesToInnerNode" executed="True" success="True" time="0.000" asserts="1" />
+                      <test-case name="Xstream.Tests.Unit.ReaderTest.MovesToNextNode" executed="True" success="True" time="0.000" asserts="2" />
+                    </results>
+                  </test-suite>
+                  <test-suite name="XmlStackTest" executed="True" success="True" time="0.000" asserts="0">
+                    <results>
+                      <test-case name="Xstream.Tests.Unit.XmlStackTest.AddsIndexNumberIfArrayElement" executed="True" success="True" time="0.000" asserts="2" />
+                      <test-case name="Xstream.Tests.Unit.XmlStackTest.FiguresOutCurrentPath" executed="True" success="True" time="0.000" asserts="2" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
