@@ -46,8 +46,6 @@ namespace Xstream.Core
             UnmarshalAs(result, type.BaseType);
         }
 
-
-
         private object ConvertField(Type fieldType)
         {
             //ToDo: use mapper to resolve type names
