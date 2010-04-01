@@ -46,12 +46,6 @@ namespace Xstream.Core {
             return converters.FirstOrDefault(converter => converter.CanConvert(type));
         }
 
-        public Converter GetConverter(string typeName) {
-            //Todo: move into mapper, should be give real type
-            if (typeName.EndsWith("-array")) return GetConverter(typeof (Array));
-            if (typeName.EndsWith("-list")) return GetConverter(typeof (ArrayList));
-            return GetConverter(Type.GetType(typeName));
-        }
 
         public Converter GetConverter(object value) {
             if (value == null) return nullConverter;
