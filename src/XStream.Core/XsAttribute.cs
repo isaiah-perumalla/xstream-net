@@ -60,7 +60,7 @@ namespace Xstream.Core {
         }
 
         public override string ToString() {
-            var builder = new StringBuilder( string.Format("SerializedClassName: {0}", serializedClassName));
+            var builder = new StringBuilder( string.Format("SerializedClassName: {0} ", serializedClassName));
             
             foreach (var attr in attributes)
             {

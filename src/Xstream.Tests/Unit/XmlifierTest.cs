@@ -13,7 +13,7 @@ namespace Xstream.Tests.Unit {
         [Test]
         public void XmlifiesWithGenerics() {
             string actual = Xmlifier.Xmlify(typeof(GenericObject<int>));
-            Console.WriteLine(actual);
+         
             Assert.AreEqual("Xstream.Tests.GenericObject", actual);
         }
     }
