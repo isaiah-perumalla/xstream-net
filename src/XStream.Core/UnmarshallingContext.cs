@@ -19,15 +19,18 @@ namespace Xstream.Core {
         }
 
         public object ConvertAnother() {
+
+            var serializedValue = ReadSerializedValue();
+            var type = mapper.ResolveTypeFor(serializedValue);
             string nullAttribute = reader.GetAttribute(XsAttribute.Null);
             if (nullAttribute != null && nullAttribute == "true") return null;
-            object result = Find();
+            object result = FindReferenceFromCurrentNode();
             if (result != null) return result;
            
             //Todo: use mapper here to resolve type
             //Todo: move into mapper, should be give real type
             string typeName = reader.GetNodeName();
-            var type = Type.GetType(typeName);
+             type = Type.GetType(typeName);
             if (typeName.EndsWith("-array")) type = typeof(Array);
             if (typeName.EndsWith("-list")) type = typeof(ArrayList);
             Converter converter = converterLookup.GetConverter(type);
@@ -41,7 +44,7 @@ namespace Xstream.Core {
             var serializedValue = ReadSerializedValue();
             var type = mapper.ResolveTypeFor(serializedValue);
              
-            Converter converter = converterLookup.GetConverter(type);
+            var converter = converterLookup.GetConverter(type);
             if (converter != null) return converter.UnMarshall(reader, this);
             return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
         }
@@ -49,8 +52,10 @@ namespace Xstream.Core {
         private SerializedValue ReadSerializedValue() {
             var tagName = reader.GetNodeName();
             string attributeValue = reader.GetAttribute(XsAttribute.classType);
+            string nullValue = reader.GetAttribute(XsAttribute.Null);
+            
             var classAtrribute = new XsAttribute(XsAttribute.classType, attributeValue);
-            var nullAtrribute = new XsAttribute(XsAttribute.Null, attributeValue);
+            var nullAtrribute = new XsAttribute(XsAttribute.Null, nullValue);
             return new SerializedValue(tagName, classAtrribute, nullAtrribute);
         }
 
@@ -63,7 +68,7 @@ namespace Xstream.Core {
             }
         }
 
-        public object Find() {
+        public object FindReferenceFromCurrentNode() {
             string referencesAttribute = reader.GetAttribute(XsAttribute.references);
             if (!string.IsNullOrEmpty(referencesAttribute)) return alreadyDeserialised[referencesAttribute];
             return null;

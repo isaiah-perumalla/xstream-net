@@ -23,7 +23,7 @@ namespace Xstream.Core
 
         internal object Unmarshal(Type type)
         {
-            var result = context.Find();
+            var result = context.FindReferenceFromCurrentNode();
             if (result != null) return result;
             if (reader.GetAttribute(XsAttribute.Null) == true.ToString())
                 return null;

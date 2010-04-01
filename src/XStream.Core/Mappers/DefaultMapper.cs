@@ -36,7 +36,9 @@ namespace Xstream.Core.Mappers {
         }
 
         public Type ResolveTypeFor(SerializedValue serializedValue) {
-            return Type.GetType(serializedValue.ValueOfAtrributeNamed(XsAttribute.classType));
+            string classType = serializedValue.ValueOfAtrributeNamed(XsAttribute.classType);
+            
+            return Type.GetType(classType);
         }
     }
 }
