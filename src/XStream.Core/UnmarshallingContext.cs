@@ -28,10 +28,10 @@ namespace Xstream.Core {
             //Todo: move into mapper, should be give real type
             string typeName = reader.GetNodeName();
             var type = Type.GetType(typeName);
+            if (typeName.EndsWith("-array")) type = typeof(Array);
+            if (typeName.EndsWith("-list")) type = typeof(ArrayList);
             Converter converter = converterLookup.GetConverter(type);
-            if (typeName.EndsWith("-array")) converter = converterLookup.GetConverter(typeof(Array));
-            if (typeName.EndsWith("-list")) converter = converterLookup.GetConverter(typeof(ArrayList));
-            
+           
            
             if (converter == null) return ConvertOriginal();
             return converter.FromXml(reader, this);
