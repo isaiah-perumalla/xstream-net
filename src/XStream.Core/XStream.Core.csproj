@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlreadySerialisedDictionary.cs" />
-    <Compile Include="Attributes.cs" />
+    <Compile Include="XsAttribute.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ConversionException.cs" />
     <Compile Include="ConverterLookup.cs" />

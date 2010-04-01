@@ -9,7 +9,7 @@ namespace xstream.Converters {
         }
 
         public void ToXml(object value, XStreamWriter writer, MarshallingContext context) {
-            writer.WriteAttribute(Attributes.Null, true.ToString());
+            writer.WriteAttribute(XsAttribute.Null, true.ToString());
         }
 
         public object FromXml(XStreamReader reader, UnmarshallingContext context) {

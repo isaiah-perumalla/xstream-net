@@ -25,7 +25,7 @@ namespace Xstream.Core {
 
         private void ConvertObject(object value) {
             if (alreadySerialised.ContainsKey(value))
-                writer.WriteAttribute(Attributes.references, alreadySerialised[value]);
+                writer.WriteAttribute(XsAttribute.references, alreadySerialised[value]);
             else {
                 alreadySerialised.Add(value, writer.CurrentPath);
                 new Marshaller(writer, this, mapper).Marshal(value);
@@ -42,8 +42,9 @@ namespace Xstream.Core {
             Type type = value != null ? value.GetType() : typeof (object);
 
             //ToDo: use mapper to resolve type names
+            //mapper.GetSerializeValueFor(type);
             writer.StartNode(Xmlifier.XmlifyNode(type));
-            writer.WriteAttribute(Attributes.classType, type.AssemblyQualifiedName);
+            writer.WriteAttribute(XsAttribute.classType, type.AssemblyQualifiedName);
         }
     }
 }

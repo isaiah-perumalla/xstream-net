@@ -9,12 +9,12 @@ namespace xstream.Converters {
         }
 
         public void ToXml(object value, XStreamWriter writer, MarshallingContext context) {
-            writer.WriteAttribute(Attributes.AttributeType, value.GetType().AssemblyQualifiedName);
+            writer.WriteAttribute(XsAttribute.AttributeType, value.GetType().AssemblyQualifiedName);
             writer.SetValue(value.ToString());
         }
 
         public object FromXml(XStreamReader reader, UnmarshallingContext context) {
-            return Enum.Parse(Type.GetType(reader.GetAttribute(Attributes.AttributeType)), reader.GetValue());
+            return Enum.Parse(Type.GetType(reader.GetAttribute(XsAttribute.AttributeType)), reader.GetValue());
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
+using Xstream.Core.Converters.Collections;
 using Xstream.Tests.Accepatance;
 using Xstream.Tests.Converters;
 

@@ -26,5 +26,9 @@ namespace Xstream.Core.Mappers {
             }
 
         }
+
+        public  SerializedValue GetSerializedClassFor(Type getType) {
+            return new SerializedValue(getType.Name, new XsAttribute(XsAttribute.classType, getType.AssemblyQualifiedName));
+        }
     }
 }

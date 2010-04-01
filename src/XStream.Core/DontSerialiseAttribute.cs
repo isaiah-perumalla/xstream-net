@@ -1,5 +1,3 @@
-using System;
-
 namespace Xstream.Core {
-    public class DontSerialiseAttribute : Attribute {}
+    public class DontSerialiseAttribute : System.Attribute {}
 }

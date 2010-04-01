@@ -42,7 +42,7 @@ namespace Xstream.Core
             if (fieldValue == null) return;
             Type actualType = fieldValue.GetType();
             if (!field.FieldType.Equals(actualType))
-                writer.WriteAttribute(Attributes.classType, actualType.AssemblyQualifiedName);
+                writer.WriteAttribute(XsAttribute.classType, actualType.AssemblyQualifiedName);
         }
     }
 }

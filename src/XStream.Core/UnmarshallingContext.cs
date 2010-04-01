@@ -18,7 +18,7 @@ namespace Xstream.Core {
         }
 
         public object ConvertAnother() {
-            string nullAttribute = reader.GetAttribute(Attributes.Null);
+            string nullAttribute = reader.GetAttribute(XsAttribute.Null);
             if (nullAttribute != null && nullAttribute == "true") return null;
             object result = Find();
             if (result != null) return result;
@@ -36,7 +36,7 @@ namespace Xstream.Core {
 
         private Type TypeToUse() {
             
-            var typeName = reader.GetAttribute(Attributes.classType);
+            var typeName = reader.GetAttribute(XsAttribute.classType);
             return Type.GetType(typeName);
         }
 
@@ -50,7 +50,7 @@ namespace Xstream.Core {
         }
 
         public object Find() {
-            string referencesAttribute = reader.GetAttribute(Attributes.references);
+            string referencesAttribute = reader.GetAttribute(XsAttribute.references);
             if (!string.IsNullOrEmpty(referencesAttribute)) return alreadyDeserialised[referencesAttribute];
             return null;
         }

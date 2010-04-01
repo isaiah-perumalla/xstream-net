@@ -25,7 +25,7 @@ namespace Xstream.Core
         {
             var result = context.Find();
             if (result != null) return result;
-            if (reader.GetAttribute(Attributes.Null) == true.ToString())
+            if (reader.GetAttribute(XsAttribute.Null) == true.ToString())
                 return null;
             result = DynamicInstanceBuilder.CreateInstance(type);
             context.StackObject(result);
@@ -51,7 +51,7 @@ namespace Xstream.Core
         private object ConvertField(Type fieldType)
         {
             //ToDo: use mapper to resolve type names
-            var classAttribute = reader.GetAttribute(Attributes.classType);
+            var classAttribute = reader.GetAttribute(XsAttribute.classType);
             if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(Xmlifier.UnXmlify(classAttribute));
             var converter = converterLookup.GetConverter(fieldType);
             return converter != null ? converter.FromXml(reader, context) : Unmarshal(fieldType);
