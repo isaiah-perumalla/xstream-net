@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using Xstream.Core;
@@ -8,6 +9,8 @@ namespace Xstream.Tests.Unit {
     [TestFixture]
     public class DefaultMapperTests {
         private DefaultMapper mapper;
+        private static Type innerClassType = typeof(InnerClass);
+        private string innerClassName = innerClassType.AssemblyQualifiedName;
 
         [SetUp]
         public void BeforeTest() {
@@ -36,12 +39,28 @@ namespace Xstream.Tests.Unit {
             var expectedValue = serializedValue("Int32-array", attribute("class", arrayType.AssemblyQualifiedName));
             Assert.AreEqual(expectedValue, mapper.SerializedTypeFor(arrayType));
         }
+        
         [Test]
         public void CanMapToSerializeValueForInnerClass() {
-            var innerClassType = typeof(InnerClass);
-            var expectedValue = serializedValue("InnerClass", attribute("class", innerClassType.AssemblyQualifiedName));
+            var expectedValue = serializedValue("InnerClass", attribute("class", innerClassName));
             Assert.AreEqual(expectedValue, mapper.SerializedTypeFor(innerClassType));
         }
+        
+        [Test]
+        public void CanResolveTypeWhenExplicitClassAttribute() {
+            var serializedType = serializedValue("SomeClass", attribute("class", innerClassName));
+            var expectedType = innerClassType;
+            Assert.AreEqual(expectedType, mapper.ResolveTypeFor(serializedType));
+        }
+        
+        [Test]
+        public void CanResolveTypeForNull() {
+            var serializedType = serializedValue("SomeClass", attribute(XsAttribute.Null, true.ToString()));
+            var expectedType = typeof(XNull);
+            Assert.AreEqual(expectedType, mapper.ResolveTypeFor(serializedType));
+        }
+
+
 
         internal class InnerClass {
         }

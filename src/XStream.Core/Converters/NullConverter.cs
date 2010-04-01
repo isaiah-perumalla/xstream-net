@@ -1,10 +1,11 @@
 using System;
 using xstream;
+using Xstream.Core.Mappers;
 
 namespace Xstream.Core.Converters {
     internal class NullConverter : Converter {
         public bool CanConvert(Type type) {
-            return false;
+            return typeof(XNull) == type;
         }
 
         public void Marshall(object value, XStreamWriter writer, MarshallingContext context) {

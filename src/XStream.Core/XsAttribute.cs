@@ -103,7 +103,7 @@ namespace Xstream.Core {
 
         public string ValueOfAtrributeNamed(string classType) {
             var classAttribute = attributes.Find(x => classType.Equals(x.Name));
-            return classAttribute.Value;
+            return classAttribute==null ? null : classAttribute.Value;
         }
     }
 }
