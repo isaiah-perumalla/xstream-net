@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
-using Xstream.Core;
-using Xstream.Core.Converters;
+using xstream;
+using Xstream.Core.Mappers;
 
-namespace xstream.Converters.Collections {
+namespace Xstream.Core.Converters.Collections {
     internal class ListConverter : Converter {
+        private IMapper mapper = new DefaultMapper();
         private const string LIST_TYPE = "list-type";
 
         public bool CanConvert(Type type) {
@@ -23,11 +24,30 @@ namespace xstream.Converters.Collections {
             int count = reader.NoOfChildren();
             reader.MoveDown();
             for (int i = 0; i < count; i++) {
-                result.Add(context.ConvertAnother());
+                object item = ReadItem(reader, context, result);
+                result.Add(item);
                 reader.MoveNext();
             }
             reader.MoveUp();
             return result;
+        }
+
+        private object ReadItem(XStreamReader reader, UnmarshallingContext context, IList result) {
+            var serializedValue = ReadSerializedValue(reader);
+            var type = mapper.ResolveTypeFor(serializedValue);
+            return context.ConvertAnother(result, type);
+        }
+
+        //Todo: duplicated!! refactor
+        private static SerializedValue ReadSerializedValue(XStreamReader xStreamReader)
+        {
+            var tagName = xStreamReader.GetNodeName();
+            string attributeValue = xStreamReader.GetAttribute(XsAttribute.classType);
+            string nullValue = xStreamReader.GetAttribute(XsAttribute.Null);
+
+            var classAtrribute = new XsAttribute(XsAttribute.classType, attributeValue);
+            var nullAtrribute = new XsAttribute(XsAttribute.Null, nullValue);
+            return new SerializedValue(tagName, classAtrribute, nullAtrribute);
         }
     }
 }

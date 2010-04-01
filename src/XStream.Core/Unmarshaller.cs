@@ -55,7 +55,9 @@ namespace Xstream.Core
             var classAttribute = reader.GetAttribute(XsAttribute.classType);
             if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(Xmlifier.UnXmlify(classAttribute));
             var converter = converterLookup.GetConverter(fieldType);
-            return converter != null ? converter.UnMarshall(reader, context) : Unmarshal(fieldType);
+            if (converter != null)
+                return converter.UnMarshall(reader, context);
+            return Unmarshal(fieldType);
         }
 
     }

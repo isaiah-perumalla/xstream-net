@@ -18,17 +18,15 @@ namespace Xstream.Core {
             this.mapper = mapper;
         }
 
-        public object ConvertAnother() {
+        public object ConvertAnother(object parent, Type type) {
 
-            var serializedValue = ReadSerializedValue();
-            var type = mapper.ResolveTypeFor(serializedValue);
             Converter converter = converterLookup.GetConverter(type);
             if (converter == null) return Start();
             return converter.UnMarshall(reader, this);
         }
 
         public object Start() {
-            var serializedValue = ReadSerializedValue();
+            var serializedValue = ReadSerializedValue(reader);
             var type = mapper.ResolveTypeFor(serializedValue);
              
             var converter = converterLookup.GetConverter(type);
@@ -40,10 +38,10 @@ namespace Xstream.Core {
             return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
         }
 
-        private SerializedValue ReadSerializedValue() {
-            var tagName = reader.GetNodeName();
-            string attributeValue = reader.GetAttribute(XsAttribute.classType);
-            string nullValue = reader.GetAttribute(XsAttribute.Null);
+        private static SerializedValue ReadSerializedValue(XStreamReader xStreamReader) {
+            var tagName = xStreamReader.GetNodeName();
+            string attributeValue = xStreamReader.GetAttribute(XsAttribute.classType);
+            string nullValue = xStreamReader.GetAttribute(XsAttribute.Null);
             
             var classAtrribute = new XsAttribute(XsAttribute.classType, attributeValue);
             var nullAtrribute = new XsAttribute(XsAttribute.Null, nullValue);
