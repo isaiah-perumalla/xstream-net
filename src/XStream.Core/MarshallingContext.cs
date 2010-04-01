@@ -1,6 +1,4 @@
 using System;
-using xstream;
-using Xstream.Core.Converters;
 using Xstream.Core.Mappers;
 using xstream.Utilities;
 
@@ -18,7 +16,7 @@ namespace Xstream.Core {
         }
 
         internal void ConvertAnother(object value) {
-            Converter converter = converterLookup.GetConverter(value);
+            var converter = converterLookup.GetConverter(value);
             if (converter != null) converter.ToXml(value, writer, this);
             else ConvertObject(value);
         }
@@ -39,13 +37,11 @@ namespace Xstream.Core {
         }
 
         private void StartNode(object value) {
-            Type type = value != null ? value.GetType() : typeof (object);
-
-            //ToDo: use mapper to resolve type names
-            var serializedValue = mapper.GetSerializedClassFor(type);
+            //ToDo: use domain specific null types
+            var type = value != null ? value.GetType() : typeof (object);
+            var serializedValue = mapper.SerializedTypeFor(type);
             serializedValue.WriteOn(writer);
-            /*writer.StartNode(Xmlifier.XmlifyNode(type));
-            writer.WriteAttribute(XsAttribute.classType, type.AssemblyQualifiedName);*/
+           
         }
     }
 }

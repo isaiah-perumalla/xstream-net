@@ -18,7 +18,7 @@ namespace Xstream.Tests.Unit {
         public void CanMapToSerializeValueForAType() {
 
             
-            var serializedValue = mapper.GetSerializedClassFor(GetType());
+            var serializedValue = mapper.SerializedTypeFor(GetType());
             Assert.That(serializedValue, Is.EqualTo(new SerializedValue("DefaultMapperTests", attribute("class", GetType().AssemblyQualifiedName))));
            
         }
@@ -27,20 +27,20 @@ namespace Xstream.Tests.Unit {
         public void CanMapToSerializeValueForGenericType() {
             var genericObjType = typeof(GenericObject<int>);
             var expectedValue = serializedValue("GenericObject", attribute("class", genericObjType.AssemblyQualifiedName));
-            Assert.AreEqual(expectedValue, mapper.GetSerializedClassFor(genericObjType));
+            Assert.AreEqual(expectedValue, mapper.SerializedTypeFor(genericObjType));
         }
         
         [Test]
         public void CanMapToSerializeValueForArray() {
             var arrayType = typeof(int[]);
             var expectedValue = serializedValue("Int32-array", attribute("class", arrayType.AssemblyQualifiedName));
-            Assert.AreEqual(expectedValue, mapper.GetSerializedClassFor(arrayType));
+            Assert.AreEqual(expectedValue, mapper.SerializedTypeFor(arrayType));
         }
         [Test]
         public void CanMapToSerializeValueForInnerClass() {
             var innerClassType = typeof(InnerClass);
             var expectedValue = serializedValue("InnerClass", attribute("class", innerClassType.AssemblyQualifiedName));
-            Assert.AreEqual(expectedValue, mapper.GetSerializedClassFor(innerClassType));
+            Assert.AreEqual(expectedValue, mapper.SerializedTypeFor(innerClassType));
         }
 
         internal class InnerClass {
