@@ -44,7 +44,7 @@ namespace Xstream.Core {
             var nullAtrribute = new XsAttribute(XsAttribute.Null, attributeValue);
             var serializedValue = new SerializedValue(tagName, classAtrribute, nullAtrribute);
             Type type = mapper.ResolveTypeFor(serializedValue);
-             type = Type.GetType(attributeValue);
+             
             Converter converter = converterLookup.GetConverter(type);
             if (converter != null) return converter.UnMarshall(reader, this);
             return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
