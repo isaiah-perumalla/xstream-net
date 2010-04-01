@@ -22,20 +22,7 @@ namespace Xstream.Core {
 
             var serializedValue = ReadSerializedValue();
             var type = mapper.ResolveTypeFor(serializedValue);
-            string nullAttribute = reader.GetAttribute(XsAttribute.Null);
-            if (nullAttribute != null && nullAttribute == "true") return null;
-            object result = FindReferenceFromCurrentNode();
-            if (result != null) return result;
-           
-            //Todo: use mapper here to resolve type
-            //Todo: move into mapper, should be give real type
-            string typeName = reader.GetNodeName();
-             type = Type.GetType(typeName);
-            if (typeName.EndsWith("-array")) type = typeof(Array);
-            if (typeName.EndsWith("-list")) type = typeof(ArrayList);
             Converter converter = converterLookup.GetConverter(type);
-           
-           
             if (converter == null) return Start();
             return converter.UnMarshall(reader, this);
         }

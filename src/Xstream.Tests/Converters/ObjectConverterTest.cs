@@ -13,6 +13,12 @@ namespace Xstream.Tests.Converters {
         }
 
         [Test]
+        public void ConvertObjectWithNullFields() {
+
+            SerialiseAndDeserialise(new Person("likeNoOne"));
+        }
+
+        [Test]
         public void ConvertsPerson() {
             SerialiseAndDeserialise(new Person("john"));
         }
