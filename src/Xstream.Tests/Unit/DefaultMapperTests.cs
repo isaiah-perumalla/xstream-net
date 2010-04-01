@@ -1,4 +1,3 @@
-using System;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 using Xstream.Core;
@@ -20,22 +19,31 @@ namespace Xstream.Tests.Unit {
 
             
             var serializedValue = mapper.GetSerializedClassFor(GetType());
-            Assert.That(serializedValue, Is.EqualTo(new SerializedValue("Xstream.Tests.Unit.DefaultMapperTests", attribute("class", GetType().AssemblyQualifiedName))));
+            Assert.That(serializedValue, Is.EqualTo(new SerializedValue("DefaultMapperTests", attribute("class", GetType().AssemblyQualifiedName))));
            
         }
 
         [Test]
         public void CanMapToSerializeValueForGenericType() {
             var genericObjType = typeof(GenericObject<int>);
-            var expectedValue = serializedValue("Xstream.Tests.GenericObject", attribute("class", genericObjType.AssemblyQualifiedName));
+            var expectedValue = serializedValue("GenericObject", attribute("class", genericObjType.AssemblyQualifiedName));
             Assert.AreEqual(expectedValue, mapper.GetSerializedClassFor(genericObjType));
         }
         
         [Test]
         public void CanMapToSerializeValueForArray() {
             var arrayType = typeof(int[]);
-            var expectedValue = serializedValue("System.Int32-array", attribute("class", arrayType.AssemblyQualifiedName));
+            var expectedValue = serializedValue("Int32-array", attribute("class", arrayType.AssemblyQualifiedName));
             Assert.AreEqual(expectedValue, mapper.GetSerializedClassFor(arrayType));
+        }
+        [Test]
+        public void CanMapToSerializeValueForInnerClass() {
+            var innerClassType = typeof(InnerClass);
+            var expectedValue = serializedValue("InnerClass", attribute("class", innerClassType.AssemblyQualifiedName));
+            Assert.AreEqual(expectedValue, mapper.GetSerializedClassFor(innerClassType));
+        }
+
+        internal class InnerClass {
         }
 
         private SerializedValue serializedValue(string value, params XsAttribute[] xsAttributes) {

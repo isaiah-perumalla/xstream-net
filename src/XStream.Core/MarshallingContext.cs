@@ -44,8 +44,8 @@ namespace Xstream.Core {
             //ToDo: use mapper to resolve type names
             var serializedValue = mapper.GetSerializedClassFor(type);
             serializedValue.WriteOn(writer);
-            writer.StartNode(Xmlifier.XmlifyNode(type));
-            writer.WriteAttribute(XsAttribute.classType, type.AssemblyQualifiedName);
+            /*writer.StartNode(Xmlifier.XmlifyNode(type));
+            writer.WriteAttribute(XsAttribute.classType, type.AssemblyQualifiedName);*/
         }
     }
 }

@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using NUnit.Framework;
-using xstream;
 using Xstream.Core;
 
-namespace Xstream.Tests {
+namespace Xstream.Tests.Unit {
     [TestFixture]
     public class ReleaseTest {
         private static readonly List<Type> publicTypes = new List<Type>();

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
@@ -41,16 +42,19 @@ namespace Xstream.Core {
         internal const string Null = "null";
         internal const string classType = "class";
 
+        public void WriteOn(XStreamWriter writer) {
+            writer.WriteAttribute(name, value);
+        }
     }
 
 
     internal class SerializedValue {
         private readonly string serializedClassName;
-        private readonly XsAttribute[] attributes;
+        private readonly List<XsAttribute> attributes;
 
         internal SerializedValue(string serializedClassName, params XsAttribute[] attributes) {
             this.serializedClassName = serializedClassName;
-            this.attributes = attributes;
+            this.attributes = new List<XsAttribute>(attributes);
         }
 
         public bool Equals(SerializedValue other) {
@@ -84,7 +88,8 @@ namespace Xstream.Core {
         }
 
         public void WriteOn(XStreamWriter writer) {
-            
+            writer.StartNode(serializedClassName);
+            attributes.ForEach(x => x.WriteOn(writer));
         }
     }
 }

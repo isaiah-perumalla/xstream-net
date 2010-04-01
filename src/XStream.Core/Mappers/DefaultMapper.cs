@@ -7,6 +7,7 @@ using xstream;
 namespace Xstream.Core.Mappers {
     internal class DefaultMapper : IMapper
     {
+        private const string plusSymbol = "-plus";
         private const string serializedArraySymbol = "-array";
         private const BindingFlags DefaultBindingFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.FlattenHierarchy;
 
@@ -30,7 +31,7 @@ namespace Xstream.Core.Mappers {
 
         public  SerializedValue GetSerializedClassFor(Type getType) {
             
-            var serializedClassName = S.RemoveFrom(getType.FullName.Replace("[]", serializedArraySymbol), "`");
+            var serializedClassName = S.RemoveFrom(getType.Name.Replace("[]", serializedArraySymbol), "`");
             return new SerializedValue(serializedClassName, new XsAttribute(XsAttribute.classType, getType.AssemblyQualifiedName));
         }
     }
