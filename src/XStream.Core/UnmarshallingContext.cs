@@ -38,16 +38,20 @@ namespace Xstream.Core {
         }
 
         public object Start() {
-            var tagName = reader.GetNodeName();
-            string attributeValue = reader.GetAttribute(XsAttribute.classType);
-            var classAtrribute = new XsAttribute(XsAttribute.classType, attributeValue);
-            var nullAtrribute = new XsAttribute(XsAttribute.Null, attributeValue);
-            var serializedValue = new SerializedValue(tagName, classAtrribute, nullAtrribute);
-            Type type = mapper.ResolveTypeFor(serializedValue);
+            var serializedValue = ReadSerializedValue();
+            var type = mapper.ResolveTypeFor(serializedValue);
              
             Converter converter = converterLookup.GetConverter(type);
             if (converter != null) return converter.UnMarshall(reader, this);
             return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
+        }
+
+        private SerializedValue ReadSerializedValue() {
+            var tagName = reader.GetNodeName();
+            string attributeValue = reader.GetAttribute(XsAttribute.classType);
+            var classAtrribute = new XsAttribute(XsAttribute.classType, attributeValue);
+            var nullAtrribute = new XsAttribute(XsAttribute.Null, attributeValue);
+            return new SerializedValue(tagName, classAtrribute, nullAtrribute);
         }
 
         public void StackObject(object value) {
