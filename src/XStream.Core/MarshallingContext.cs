@@ -1,4 +1,3 @@
-using System;
 using Xstream.Core.Mappers;
 using xstream.Utilities;
 

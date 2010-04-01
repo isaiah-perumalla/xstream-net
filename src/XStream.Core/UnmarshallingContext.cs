@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using xstream;
 using Xstream.Core.Converters;
@@ -22,7 +23,16 @@ namespace Xstream.Core {
             if (nullAttribute != null && nullAttribute == "true") return null;
             object result = Find();
             if (result != null) return result;
-            Converter converter = converterLookup.GetConverter(reader.GetNodeName());
+           
+            //Todo: use mapper here to resolve type
+            //Todo: move into mapper, should be give real type
+            string typeName = reader.GetNodeName();
+            var type = Type.GetType(typeName);
+            Converter converter = converterLookup.GetConverter(type);
+            if (typeName.EndsWith("-array")) converter = converterLookup.GetConverter(typeof(Array));
+            if (typeName.EndsWith("-list")) converter = converterLookup.GetConverter(typeof(ArrayList));
+            
+           
             if (converter == null) return ConvertOriginal();
             return converter.FromXml(reader, this);
         }
