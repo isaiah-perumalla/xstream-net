@@ -25,6 +25,7 @@ namespace Xstream.Core
         {
             var result = context.FindReferenceFromCurrentNode();
             if (result != null) return result;
+           
             if (reader.GetAttribute(XsAttribute.Null) == true.ToString())
                 return null;
             result = DynamicInstanceBuilder.CreateInstance(type);
@@ -46,6 +47,7 @@ namespace Xstream.Core
             UnmarshalAs(result, type.BaseType);
         }
 
+        //Todo: remove this, should'nt use a lookup here
         private object ConvertField(Type fieldType)
         {
             //ToDo: use mapper to resolve type names

@@ -33,6 +33,10 @@ namespace Xstream.Core {
              
             var converter = converterLookup.GetConverter(type);
             if (converter != null) return converter.UnMarshall(reader, this);
+            
+            var result = FindReferenceFromCurrentNode();
+            if (result != null) return result;
+            
             return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
         }
 

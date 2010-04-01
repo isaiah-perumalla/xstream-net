@@ -16,7 +16,7 @@ namespace Xstream.Tests.Unit {
             publicTypes.Add(typeof (DontSerialiseAttribute));
         }
 
-        [Test]
+        [Test, Ignore("not relevant, classes in test project can be anything")]
         public void AllClassesAreInternal() {
             Type[] allTypes = Assembly.GetExecutingAssembly().GetTypes();
             foreach (Type type in allTypes) {

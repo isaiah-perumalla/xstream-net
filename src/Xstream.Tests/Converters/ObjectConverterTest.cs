@@ -1,6 +1,7 @@
 using System;
 using System.Text;
 using NUnit.Framework;
+using NUnit.Framework.SyntaxHelpers;
 using xstream;
 using Xstream.Tests.Accepatance;
 
@@ -21,6 +22,21 @@ namespace Xstream.Tests.Converters {
         [Test]
         public void ConvertsPerson() {
             SerialiseAndDeserialise(new Person("john"));
+        }
+        
+        [Test]
+        public void CanDeserialzedFromXmlIfOrderOfElementsIsChanged() {
+            var computer = new Computer("ibm", "123123");
+            Console.WriteLine(xstream.ToXml(computer));
+
+            var xmlwithFieldInDifferentOrder = string.Format("<Computer class=\"{0}\">", computer.GetType().AssemblyQualifiedName) +
+                                 @"  <IP>123123</IP>
+                                    <Name>ibm</Name>
+                                    </Computer>";
+            
+            var serializedComputer = (Computer)xstream.FromXml(xmlwithFieldInDifferentOrder);
+            Assert.That(serializedComputer.Name, Is.EqualTo(computer.Name));
+            Assert.That(serializedComputer.IP, Is.EqualTo(computer.IP));
         }
 
         [Test]
@@ -51,6 +67,19 @@ namespace Xstream.Tests.Converters {
         }
     }
 
+    public class Computer
+    {
+        internal string Name;
+        internal string IP;
+        
+        public Computer(String name, String ip)
+        {
+            this.Name = name;
+            this.IP = ip;
+        }
+
+      
+    }
     internal class DerivedObject : BaseObject {
         public readonly int i = 100;
 
