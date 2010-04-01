@@ -14,7 +14,7 @@ namespace xstream.Converters.Collections {
             return type.Equals(typeof (T));
         }
 
-        public void ToXml(object value, XStreamWriter writer, MarshallingContext context) {
+        public void Marshall(object value, XStreamWriter writer, MarshallingContext context) {
             IDictionary dictionary = (IDictionary) value;
             DoSpecificStuff(dictionary, writer);
             foreach (DictionaryEntry entry in dictionary) {
@@ -27,7 +27,7 @@ namespace xstream.Converters.Collections {
 
         protected virtual void DoSpecificStuff(IDictionary dictionary, XStreamWriter writer) {}
 
-        public object FromXml(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
             IDictionary result = EmptyDictionary(reader);
             int count = reader.NoOfChildren();
             reader.MoveDown();

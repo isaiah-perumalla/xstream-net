@@ -1,10 +1,10 @@
 using System;
 using System.Text;
 using NUnit.Framework;
+using xstream;
 using Xstream.Tests.Accepatance;
-using Xstream.Tests.Converters;
 
-namespace xstream.Converters {
+namespace Xstream.Tests.Converters {
     [TestFixture]
     public class ObjectConverterTest : ConverterTestCase {
         [Test]

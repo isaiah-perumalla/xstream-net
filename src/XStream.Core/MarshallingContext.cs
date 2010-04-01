@@ -16,7 +16,7 @@ namespace Xstream.Core {
 
         internal void ConvertAnother(object value) {
             var converter = converterLookup.GetConverter(value);
-            if (converter != null) converter.ToXml(value, writer, this);
+            if (converter != null) converter.Marshall(value, writer, this);
             else ConvertObject(value);
         }
 

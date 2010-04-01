@@ -14,11 +14,11 @@ namespace xstream.Converters {
             return type.Equals(typeof (T));
         }
 
-        public void ToXml(object value, XStreamWriter writer, MarshallingContext context) {
+        public void Marshall(object value, XStreamWriter writer, MarshallingContext context) {
             writer.SetValue(value.ToString());
         }
 
-        public object FromXml(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
             return parse(reader.GetValue());
         }
     }

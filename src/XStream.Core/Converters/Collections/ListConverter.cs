@@ -11,14 +11,14 @@ namespace xstream.Converters.Collections {
             return typeof (ArrayList).Equals(type);
         }
 
-        public void ToXml(object value, XStreamWriter writer, MarshallingContext context) {
+        public void Marshall(object value, XStreamWriter writer, MarshallingContext context) {
             IList list = (IList) value;
             writer.WriteAttribute(LIST_TYPE, value.GetType().FullName);
             foreach (object o in list)
                 context.ConvertOriginal(o);
         }
 
-        public object FromXml(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
             IList result = (IList) DynamicInstanceBuilder.CreateInstance(Type.GetType(reader.GetAttribute(LIST_TYPE)));
             int count = reader.NoOfChildren();
             reader.MoveDown();

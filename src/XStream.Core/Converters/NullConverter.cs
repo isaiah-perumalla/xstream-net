@@ -8,11 +8,11 @@ namespace xstream.Converters {
             return false;
         }
 
-        public void ToXml(object value, XStreamWriter writer, MarshallingContext context) {
+        public void Marshall(object value, XStreamWriter writer, MarshallingContext context) {
             writer.WriteAttribute(XsAttribute.Null, true.ToString());
         }
 
-        public object FromXml(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
             return null;
         }
     }

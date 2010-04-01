@@ -27,7 +27,7 @@ namespace Xstream.Core {
             standardConverters.Add(new SingleValueConverter<bool>(bool.Parse));
             standardConverters.Add(new SingleValueConverter<byte>(byte.Parse));
             standardConverters.Add(new SingleValueConverter<Guid>(delegate(string s) { return new Guid(s); }));
-            standardConverters.Add(new TypeConverter());
+//            standardConverters.Add(new TypeConverter());
             standardConverters.Add(new SingleValueConverter<string>(delegate(string s) { return s; }));
             standardConverters.Add(new SingleValueConverter<char>(char.Parse));
             standardConverters.Add(new EnumConverter());

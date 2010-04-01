@@ -34,13 +34,13 @@ namespace Xstream.Core {
            
            
             if (converter == null) return ConvertOriginal();
-            return converter.FromXml(reader, this);
+            return converter.UnMarshall(reader, this);
         }
 
         public object ConvertOriginal() {
             Type type = TypeToUse();
             Converter converter = converterLookup.GetConverter(type);
-            if (converter != null) return converter.FromXml(reader, this);
+            if (converter != null) return converter.UnMarshall(reader, this);
             return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
         }
 

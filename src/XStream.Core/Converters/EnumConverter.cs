@@ -8,12 +8,12 @@ namespace xstream.Converters {
             return type.IsEnum;
         }
 
-        public void ToXml(object value, XStreamWriter writer, MarshallingContext context) {
+        public void Marshall(object value, XStreamWriter writer, MarshallingContext context) {
             writer.WriteAttribute(XsAttribute.AttributeType, value.GetType().AssemblyQualifiedName);
             writer.SetValue(value.ToString());
         }
 
-        public object FromXml(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
             return Enum.Parse(Type.GetType(reader.GetAttribute(XsAttribute.AttributeType)), reader.GetValue());
         }
     }

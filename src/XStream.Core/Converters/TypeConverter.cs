@@ -1,6 +1,7 @@
 using System;
+using xstream.Converters;
 
-namespace xstream.Converters {
+namespace Xstream.Core.Converters {
     internal class TypeConverter : SingleValueConverter<Type> {
         public TypeConverter() : base(Type.GetType) {}
 
