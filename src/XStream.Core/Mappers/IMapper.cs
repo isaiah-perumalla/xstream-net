@@ -9,6 +9,7 @@ namespace Xstream.Core.Mappers
     {
         
         IEnumerable<Field> GetSerializableFieldsIn(Type type);
+        SerializedValue GetSerializedClassFor(Type type);
     }
 
     internal class Field {

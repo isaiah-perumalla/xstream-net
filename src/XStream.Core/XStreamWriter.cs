@@ -3,7 +3,7 @@ using System.Text;
 using System.Xml;
 using xstream.Utilities;
 
-namespace xstream {
+namespace Xstream.Core {
     public interface XStreamWriter {
         void StartNode(string name);
         void SetValue(string value);

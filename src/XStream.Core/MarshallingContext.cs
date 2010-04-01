@@ -42,7 +42,8 @@ namespace Xstream.Core {
             Type type = value != null ? value.GetType() : typeof (object);
 
             //ToDo: use mapper to resolve type names
-            //mapper.GetSerializeValueFor(type);
+            var serializedValue = mapper.GetSerializedClassFor(type);
+            serializedValue.WriteOn(writer);
             writer.StartNode(Xmlifier.XmlifyNode(type));
             writer.WriteAttribute(XsAttribute.classType, type.AssemblyQualifiedName);
         }

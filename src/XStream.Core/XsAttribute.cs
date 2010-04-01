@@ -82,5 +82,9 @@ namespace Xstream.Core {
                 return ((serializedClassName != null ? serializedClassName.GetHashCode() : 0)*397) ^ (attributes != null ? attributes.GetHashCode() : 0);
             }
         }
+
+        public void WriteOn(XStreamWriter writer) {
+            
+        }
     }
 }

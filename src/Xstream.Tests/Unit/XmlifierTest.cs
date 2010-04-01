@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using xstream.Utilities;
 
@@ -11,7 +12,9 @@ namespace Xstream.Tests.Unit {
 
         [Test]
         public void XmlifiesWithGenerics() {
-            Assert.AreEqual("Xstream.Tests.GenericObject", Xmlifier.Xmlify(typeof(GenericObject<int>)));
+            string actual = Xmlifier.Xmlify(typeof(GenericObject<int>));
+            Console.WriteLine(actual);
+            Assert.AreEqual("Xstream.Tests.GenericObject", actual);
         }
     }
 }

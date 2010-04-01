@@ -28,7 +28,8 @@ namespace Xstream.Core.Mappers {
         }
 
         public  SerializedValue GetSerializedClassFor(Type getType) {
-            return new SerializedValue(getType.Name, new XsAttribute(XsAttribute.classType, getType.AssemblyQualifiedName));
+            var serializedClassName = S.RemoveFrom(getType.FullName, "`");
+            return new SerializedValue(serializedClassName, new XsAttribute(XsAttribute.classType, getType.AssemblyQualifiedName));
         }
     }
 }
