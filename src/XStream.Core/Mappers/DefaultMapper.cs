@@ -34,5 +34,9 @@ namespace Xstream.Core.Mappers {
             var serializedClassName = S.RemoveFrom(getType.Name.Replace("[]", serializedArraySymbol), "`");
             return new SerializedValue(serializedClassName, new XsAttribute(XsAttribute.classType, getType.AssemblyQualifiedName));
         }
+
+        public Type ResolveTypeFor(SerializedValue serializedValue) {
+            return Type.GetType(serializedValue.ValueOfAtrributeNamed(XsAttribute.classType));
+        }
     }
 }

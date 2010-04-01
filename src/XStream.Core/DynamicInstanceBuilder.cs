@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Reflection;
 using System.Reflection.Emit;
-using Xstream.Core;
+using xstream;
 
-namespace xstream {
+namespace Xstream.Core {
     internal class DynamicInstanceBuilder {
         private const string prefix = ".xsnet~";
         private static ModuleBuilder moduleBuilder = null;

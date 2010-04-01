@@ -24,7 +24,7 @@ namespace Xstream.Core {
         public object FromXml(string s) {
             var reader = new XReader(s);
             var context = new UnmarshallingContext(reader, converterLookup, mapper);
-            return context.ConvertOriginal();
+            return context.Start();
         }
 
 

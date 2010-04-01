@@ -6,6 +6,15 @@ using System.Linq;
 namespace Xstream.Core {
     internal class XsAttribute {
         private readonly string name;
+
+        public string Name {
+            get { return name; }
+        }
+
+        public string Value {
+            get { return value; }
+        }
+
         private readonly string value;
 
         public XsAttribute(string name, string value) {
@@ -90,6 +99,11 @@ namespace Xstream.Core {
         public void WriteOn(XStreamWriter writer) {
             writer.StartNode(serializedClassName);
             attributes.ForEach(x => x.WriteOn(writer));
+        }
+
+        public string ValueOfAtrributeNamed(string classType) {
+            var classAttribute = attributes.Find(x => classType.Equals(x.Name));
+            return classAttribute.Value;
         }
     }
 }

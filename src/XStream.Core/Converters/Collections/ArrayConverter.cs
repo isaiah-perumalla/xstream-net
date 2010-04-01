@@ -25,7 +25,7 @@ namespace Xstream.Core.Converters.Collections {
             if (count != 0) {
                 reader.MoveDown();
                 for (int i = 0; i < count; i++) {
-                    result.SetValue(context.ConvertOriginal(), i);
+                    result.SetValue(context.Start(), i);
                     reader.MoveNext();
                 }
                 reader.MoveUp();

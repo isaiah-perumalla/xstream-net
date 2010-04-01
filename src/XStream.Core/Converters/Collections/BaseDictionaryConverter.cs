@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
-using Xstream.Core;
-using Xstream.Core.Converters;
+using xstream;
 
-namespace xstream.Converters.Collections {
+namespace Xstream.Core.Converters.Collections {
     internal abstract class BaseDictionaryConverter<T> : Converter where T : IDictionary {
         protected const string KEY = "key";
         private const string VALUE = "value";
@@ -48,7 +47,7 @@ namespace xstream.Converters.Collections {
 
         private static void GetObject(UnmarshallingContext context, ref object key, ref object value, XStreamReader reader) {
             string nodeName = reader.GetNodeName();
-            object o = context.ConvertOriginal();
+            object o = context.Start();
             if (BaseDictionaryConverter<Hashtable>.KEY.Equals(nodeName)) key = o;
             else value = o;
         }

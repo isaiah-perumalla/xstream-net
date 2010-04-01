@@ -33,21 +33,21 @@ namespace Xstream.Core {
             Converter converter = converterLookup.GetConverter(type);
            
            
-            if (converter == null) return ConvertOriginal();
+            if (converter == null) return Start();
             return converter.UnMarshall(reader, this);
         }
 
-        public object ConvertOriginal() {
-            Type type = TypeToUse();
+        public object Start() {
+            var tagName = reader.GetNodeName();
+            string attributeValue = reader.GetAttribute(XsAttribute.classType);
+            var classAtrribute = new XsAttribute(XsAttribute.classType, attributeValue);
+            var nullAtrribute = new XsAttribute(XsAttribute.Null, attributeValue);
+            var serializedValue = new SerializedValue(tagName, classAtrribute, nullAtrribute);
+            Type type = mapper.ResolveTypeFor(serializedValue);
+             type = Type.GetType(attributeValue);
             Converter converter = converterLookup.GetConverter(type);
             if (converter != null) return converter.UnMarshall(reader, this);
             return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
-        }
-
-        private Type TypeToUse() {
-            
-            var typeName = reader.GetAttribute(XsAttribute.classType);
-            return Type.GetType(typeName);
         }
 
         public void StackObject(object value) {
