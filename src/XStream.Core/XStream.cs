@@ -1,6 +1,7 @@
 using System.Text;
 using xstream;
 using Xstream.Core.Converters;
+using Xstream.Core.Converters.Collections;
 using Xstream.Core.Mappers;
 
 namespace Xstream.Core {
@@ -11,6 +12,7 @@ namespace Xstream.Core {
 
         public XStream() {
             this.converterLookup = new ConverterLookup(mapper);
+            converterLookup.AddConverter(new ArrayConverter(mapper));
         }
 
         public string ToXml(object value) {

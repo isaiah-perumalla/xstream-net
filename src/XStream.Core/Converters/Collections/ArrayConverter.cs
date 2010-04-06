@@ -4,8 +4,12 @@ using Xstream.Core.Mappers;
 
 namespace Xstream.Core.Converters.Collections {
     internal class ArrayConverter : Converter {
-        private IMapper mapper = new DefaultMapper();
+        private IMapper mapper;
         private const string ARRAY_TYPE = "array-type";
+
+        public ArrayConverter(IMapper mapper) {
+            this.mapper = mapper;
+        }
 
         public bool CanConvert(Type type) {
             return type.IsArray;
