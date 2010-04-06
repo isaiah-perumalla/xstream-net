@@ -36,10 +36,10 @@ namespace Xstream.Core {
             var result = FindReferenceFromCurrentNode();
             if (result != null) return result;
 
-           /* converter = new ObjectConverter(mapper);
-            converter.UnMarshall(reader, this);*/
+           converter = new ObjectConverter(mapper, converterLookup);
+            return converter.UnMarshall(reader, this, type);
 
-            return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
+            //return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
         }
 
         private static SerializedValue ReadSerializedValue(XStreamReader xStreamReader) {
