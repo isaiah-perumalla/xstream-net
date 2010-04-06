@@ -5,9 +5,13 @@ using Xstream.Core.Mappers;
 
 namespace Xstream.Core.Converters.Collections {
     internal abstract class BaseDictionaryConverter<T> : Converter where T : IDictionary {
-        private static IMapper mapper = new DefaultMapper();
+        private  IMapper mapper;
         protected const string KEY = "key";
         private const string VALUE = "value";
+
+        protected BaseDictionaryConverter(IMapper mapper) {
+            this.mapper = mapper;
+        }
 
         public bool CanConvert(Type type) {
             if (typeof (T).IsGenericType && type.IsGenericType)
@@ -47,7 +51,7 @@ namespace Xstream.Core.Converters.Collections {
 
         protected abstract IDictionary EmptyDictionary(XStreamReader reader);
 
-        private static void GetObject(UnmarshallingContext context, ref object key, ref object value, XStreamReader reader) {
+        private  void GetObject(UnmarshallingContext context, ref object key, ref object value, XStreamReader reader) {
             string nodeName = reader.GetNodeName();
             var serializeValue = ReadSerializedValue(reader);
 

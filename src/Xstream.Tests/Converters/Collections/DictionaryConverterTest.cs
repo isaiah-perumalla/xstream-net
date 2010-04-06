@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using Xstream.Core.Converters.Collections;
+using Xstream.Core.Mappers;
 using Xstream.Tests.Accepatance;
 using Xstream.Tests.Converters;
 
@@ -25,8 +26,9 @@ namespace xstream.Converters.Collections {
 
         [Test]
         public void SignsUpOnlyForGenericDictionaries() {
-            Assert.AreEqual(true, new DictionaryConverter().CanConvert(new Dictionary<int, string>().GetType()));
-            Assert.AreEqual(false, new DictionaryConverter().CanConvert(new Person("").GetType()));
+            var defaultMapper = new DefaultMapper();
+            Assert.AreEqual(true, new DictionaryConverter(defaultMapper).CanConvert(new Dictionary<int, string>().GetType()));
+            Assert.AreEqual(false, new DictionaryConverter(defaultMapper).CanConvert(new Person("").GetType()));
         }
     }
 }

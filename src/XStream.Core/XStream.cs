@@ -13,6 +13,8 @@ namespace Xstream.Core {
         public XStream() {
             this.converterLookup = new ConverterLookup(mapper);
             converterLookup.AddConverter(new ArrayConverter(mapper));
+            converterLookup.AddConverter(new DictionaryConverter(mapper));
+            converterLookup.AddConverter(new HashtableConverter(mapper));
         }
 
         public string ToXml(object value) {
