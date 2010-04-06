@@ -82,21 +82,18 @@ namespace Xstream.Core.Converters {
             foreach (var field in mapper.GetSerializableFieldsIn(type))
             {
                 reader.MoveDown(field.SerializedName);
-                field.SetValue(result, ConvertField(result, field.FieldType, reader, context));
+                Type fieldType = field.FieldType;
+                //ToDo: use mapper to resolve type names
+                //var type = mapper.RealTypeFor(serializeValue)
+                var classAttribute = reader.GetAttribute(XsAttribute.classType);
+                if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(Xmlifier.UnXmlify(classAttribute));
+                object fieldValue = context.ConvertAnother(result, fieldType);
+                field.SetValue(result, fieldValue);
                 reader.MoveUp();
             }
             UnmarshalAs(result, type.BaseType, reader, context);
         }
 
         //Todo: remove this, should'nt use a lookup here
-        private object ConvertField(object parent, Type fieldType, XStreamReader reader, UnmarshallingContext context)
-        {
-            //ToDo: use mapper to resolve type names
-            //var type = mapper.RealTypeFor(serializeValue)
-            var classAttribute = reader.GetAttribute(XsAttribute.classType);
-            if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(Xmlifier.UnXmlify(classAttribute));
-            
-            return context.ConvertAnother(parent, fieldType);
-        }
     }
 }
