@@ -1,8 +1,10 @@
 using System;
 using xstream;
+using Xstream.Core.Mappers;
 
 namespace Xstream.Core.Converters.Collections {
     internal class ArrayConverter : Converter {
+        private IMapper mapper = new DefaultMapper();
         private const string ARRAY_TYPE = "array-type";
 
         public bool CanConvert(Type type) {
@@ -25,12 +27,25 @@ namespace Xstream.Core.Converters.Collections {
             if (count != 0) {
                 reader.MoveDown();
                 for (int i = 0; i < count; i++) {
-                    result.SetValue(context.Start(), i);
+                    var serializedValue = ReadSerializedValue(reader);
+                    var elementType = mapper.ResolveTypeFor(serializedValue);
+                    result.SetValue(context.ConvertAnother(result, elementType), i);
                     reader.MoveNext();
                 }
                 reader.MoveUp();
             }
             return result;
         }
+        private static SerializedValue ReadSerializedValue(XStreamReader xStreamReader)
+        {
+            var tagName = xStreamReader.GetNodeName();
+            string attributeValue = xStreamReader.GetAttribute(XsAttribute.classType);
+            string nullValue = xStreamReader.GetAttribute(XsAttribute.Null);
+
+            var classAtrribute = new XsAttribute(XsAttribute.classType, attributeValue);
+            var nullAtrribute = new XsAttribute(XsAttribute.Null, nullValue);
+            return new SerializedValue(tagName, classAtrribute, nullAtrribute);
+        }
     }
+
 }

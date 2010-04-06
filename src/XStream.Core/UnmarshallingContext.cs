@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using xstream;
 using Xstream.Core.Converters;
@@ -21,7 +20,6 @@ namespace Xstream.Core {
         public object ConvertAnother(object parent, Type type) {
 
             Converter converter = converterLookup.GetConverter(type);
-            if (converter == null) return Start();
             return converter.UnMarshall(reader, this, type);
         }
 
