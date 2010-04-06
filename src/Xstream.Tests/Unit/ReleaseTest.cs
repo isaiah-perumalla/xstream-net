@@ -16,9 +16,9 @@ namespace Xstream.Tests.Unit {
             publicTypes.Add(typeof (DontSerialiseAttribute));
         }
 
-        [Test, Ignore("not relevant, classes in test project can be anything")]
+        [Test]
         public void AllClassesAreInternal() {
-            Type[] allTypes = Assembly.GetExecutingAssembly().GetTypes();
+            Type[] allTypes = Assembly.GetAssembly(typeof(XStream)).GetTypes();
             foreach (Type type in allTypes) {
                 if (type.IsVisible && !publicTypes.Contains(type) && !type.IsInterface && !type.IsAbstract && IsNotTest(type) &&
                     !typeof(Exception).IsAssignableFrom(type))

@@ -1,4 +1,4 @@
 ﻿namespace Xstream.Core.Mappers {
-    public class XNull {
+    internal class XNull {
     }
 }
