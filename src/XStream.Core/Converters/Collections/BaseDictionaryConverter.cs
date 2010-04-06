@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using xstream;
+using Xstream.Core.Mappers;
 
 namespace Xstream.Core.Converters.Collections {
     internal abstract class BaseDictionaryConverter<T> : Converter where T : IDictionary {
+        private static IMapper mapper = new DefaultMapper();
         protected const string KEY = "key";
         private const string VALUE = "value";
 
@@ -47,7 +49,9 @@ namespace Xstream.Core.Converters.Collections {
 
         private static void GetObject(UnmarshallingContext context, ref object key, ref object value, XStreamReader reader) {
             string nodeName = reader.GetNodeName();
-            object o = context.Start();
+            var serializeValue = ReadSerializedValue(reader);
+
+            object o = context.ConvertAnother(value, mapper.ResolveTypeFor(serializeValue));
             if (BaseDictionaryConverter<Hashtable>.KEY.Equals(nodeName)) key = o;
             else value = o;
         }
@@ -58,6 +62,17 @@ namespace Xstream.Core.Converters.Collections {
             writer.WriteAttribute(XsAttribute.classType, type.AssemblyQualifiedName);
             context.ConvertAnother(value);
             writer.EndNode();
+        }
+
+         private static SerializedValue ReadSerializedValue(XStreamReader xStreamReader)
+        {
+            var tagName = xStreamReader.GetNodeName();
+            string attributeValue = xStreamReader.GetAttribute(XsAttribute.classType);
+            string nullValue = xStreamReader.GetAttribute(XsAttribute.Null);
+
+            var classAtrribute = new XsAttribute(XsAttribute.classType, attributeValue);
+            var nullAtrribute = new XsAttribute(XsAttribute.Null, nullValue);
+            return new SerializedValue(tagName, classAtrribute, nullAtrribute);
         }
     }
 }
