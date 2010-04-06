@@ -42,16 +42,16 @@ namespace Xstream.Core.Converters {
                 context.ConvertAnother(field.GetObjectFrom(value));
                 writer.EndNode();
             }
-            Type type1 = type.BaseType;
-            if (type1.Equals(typeof(object))) return;
-            foreach (var field in mapper.GetSerializableFieldsIn(type1))
+            var baseType = type.BaseType;
+            if (baseType.Equals(typeof(object))) return;
+            foreach (var field in mapper.GetSerializableFieldsIn(baseType))
             {
                 writer.StartNode(field.SerializedName);
                 WriteClassNameIfNeedBe(value, field, writer);
                 context.ConvertAnother(field.GetObjectFrom(value));
                 writer.EndNode();
             }
-            MarshalAs(value, type1.BaseType, writer, context);
+            MarshalAs(value, baseType.BaseType, writer, context);
         }
 
         private void WriteClassNameIfNeedBe(object value, Field field, XStreamWriter writer)
@@ -96,9 +96,7 @@ namespace Xstream.Core.Converters {
             var classAttribute = reader.GetAttribute(XsAttribute.classType);
             if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(Xmlifier.UnXmlify(classAttribute));
             var converter = converterLookup.GetConverter(fieldType);
-            if (converter != null)
-                return converter.UnMarshall(reader, context, fieldType);
-            return UnMarshall(reader, context, fieldType);
+            return converter.UnMarshall(reader, context, fieldType);
         }
     }
 }
