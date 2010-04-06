@@ -28,18 +28,13 @@ namespace Xstream.Core {
         public object Start() {
             var serializedValue = ReadSerializedValue(reader);
             var type = mapper.ResolveTypeFor(serializedValue);
-             
-            var converter = converterLookup.GetConverter(type);
-            if (converter != null) return converter.UnMarshall(reader, this, type);
-            
-            //ToDo: duplicated in unmarshaller
+
+            //ToDo: duplicated in Object converter
             var result = FindReferenceFromCurrentNode();
             if (result != null) return result;
 
-           converter = new ObjectConverter(mapper, converterLookup);
+            var converter = converterLookup.GetConverter(type);
             return converter.UnMarshall(reader, this, type);
-
-           
         }
 
         private static SerializedValue ReadSerializedValue(XStreamReader xStreamReader) {

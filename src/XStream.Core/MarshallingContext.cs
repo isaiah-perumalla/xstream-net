@@ -15,18 +15,14 @@ namespace Xstream.Core {
         }
 
         internal void ConvertAnother(object value) {
-            var converter = converterLookup.GetConverter(value);
-            if (converter != null) converter.Marshall(value, writer, this);
-            else ConvertObject(value);
-        }
-
-        private void ConvertObject(object value) {
             if (alreadySerialised.ContainsKey(value))
                 writer.WriteAttribute(XsAttribute.references, alreadySerialised[value]);
-            else {
+            else{
                 alreadySerialised.Add(value, writer.CurrentPath);
-                new Marshaller(writer, this, mapper).Marshal(value);
-            }
+            var converter = converterLookup.GetConverter(value);
+            converter.Marshall(value, writer, this);   
+                }
+            
         }
 
         public void ConvertOriginal(object value) {

@@ -5,12 +5,14 @@ using System.Linq;
 using xstream.Converters;
 using Xstream.Core.Converters;
 using Xstream.Core.Converters.Collections;
+using Xstream.Core.Mappers;
 
 namespace Xstream.Core {
     internal class ConverterLookup {
         private static readonly List<Converter> standardConverters = new List<Converter>();
         private readonly List<Converter> converters = new List<Converter>();
         private static readonly Converter nullConverter = new NullConverter();
+        private Converter objectConverter;
 
         static ConverterLookup() {
             standardConverters.Add(new SingleValueConverter<int>(int.Parse));
@@ -36,13 +38,17 @@ namespace Xstream.Core {
             standardConverters.Add(new DictionaryConverter());
         }
 
-        public ConverterLookup() {
+        public ConverterLookup(IMapper mapper) {
             converters.AddRange(standardConverters);
+            objectConverter = new ObjectConverter(mapper, this); //Todo clean this up
+
         }
 
         internal Converter GetConverter(Type type) {
             if (type == null) return null;
-            return converters.FirstOrDefault(converter => converter.CanConvert(type));
+            var matchedConverter =  converters.FirstOrDefault(converter => converter.CanConvert(type));
+            if (matchedConverter == null) matchedConverter = objectConverter;
+            return matchedConverter;
         }
 
 

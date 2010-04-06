@@ -5,9 +5,13 @@ using Xstream.Core.Mappers;
 
 namespace Xstream.Core {
     public class XStream {
-        private readonly ConverterLookup converterLookup = new ConverterLookup();
+        private readonly ConverterLookup converterLookup;
 
         private readonly IMapper mapper = new DefaultMapper();
+
+        public XStream() {
+            this.converterLookup = new ConverterLookup(mapper);
+        }
 
         public string ToXml(object value) {
             var stringBuilder = new StringBuilder();
