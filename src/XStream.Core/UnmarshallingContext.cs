@@ -39,7 +39,7 @@ namespace Xstream.Core {
            converter = new ObjectConverter(mapper, converterLookup);
             return converter.UnMarshall(reader, this, type);
 
-            //return new Unmarshaller(reader, this, converterLookup, mapper).Unmarshal(type);
+           
         }
 
         private static SerializedValue ReadSerializedValue(XStreamReader xStreamReader) {
