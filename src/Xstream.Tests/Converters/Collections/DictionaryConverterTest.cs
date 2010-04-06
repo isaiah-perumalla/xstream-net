@@ -3,9 +3,8 @@ using NUnit.Framework;
 using Xstream.Core.Converters.Collections;
 using Xstream.Core.Mappers;
 using Xstream.Tests.Accepatance;
-using Xstream.Tests.Converters;
 
-namespace xstream.Converters.Collections {
+namespace Xstream.Tests.Converters.Collections {
     [TestFixture]
     public class DictionaryConverterTest : ConverterTestCase {
         [Test]
