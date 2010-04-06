@@ -18,7 +18,7 @@ namespace xstream.Converters {
             writer.SetValue(value.ToString());
         }
 
-        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context, Type type) {
             return parse(reader.GetValue());
         }
     }

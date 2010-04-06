@@ -19,7 +19,7 @@ namespace Xstream.Core.Converters.Collections {
                 context.ConvertOriginal(o);
         }
 
-        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context, Type type) {
             IList result = (IList) DynamicInstanceBuilder.CreateInstance(Type.GetType(reader.GetAttribute(LIST_TYPE)));
             int count = reader.NoOfChildren();
             reader.MoveDown();

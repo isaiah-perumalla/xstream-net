@@ -12,7 +12,7 @@ namespace Xstream.Core.Converters {
             writer.WriteAttribute(XsAttribute.Null, true.ToString());
         }
 
-        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context, Type type) {
             return null;
         }
     }

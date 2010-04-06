@@ -13,7 +13,7 @@ namespace xstream.Converters {
             writer.SetValue(value.ToString());
         }
 
-        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context, Type type) {
             return Enum.Parse(Type.GetType(reader.GetAttribute(XsAttribute.AttributeType)), reader.GetValue());
         }
     }

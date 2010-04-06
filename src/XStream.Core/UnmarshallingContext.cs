@@ -22,7 +22,7 @@ namespace Xstream.Core {
 
             Converter converter = converterLookup.GetConverter(type);
             if (converter == null) return Start();
-            return converter.UnMarshall(reader, this);
+            return converter.UnMarshall(reader, this, type);
         }
 
         public object Start() {
@@ -30,7 +30,7 @@ namespace Xstream.Core {
             var type = mapper.ResolveTypeFor(serializedValue);
              
             var converter = converterLookup.GetConverter(type);
-            if (converter != null) return converter.UnMarshall(reader, this);
+            if (converter != null) return converter.UnMarshall(reader, this, type);
             
             //ToDo: duplicated in unmarshaller
             var result = FindReferenceFromCurrentNode();
@@ -68,23 +68,4 @@ namespace Xstream.Core {
         }
     }
 
-    internal class ObjectConverter : Converter {
-        private readonly IMapper mapper;
-
-        public ObjectConverter(IMapper mapper) {
-            this.mapper = mapper;
-        }
-
-        public bool CanConvert(Type type) {
-            throw new NotImplementedException();
-        }
-
-        public void Marshall(object value, XStreamWriter writer, MarshallingContext context) {
-            throw new NotImplementedException();
-        }
-
-        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
-            throw new NotImplementedException();
-        }
-    }
 }

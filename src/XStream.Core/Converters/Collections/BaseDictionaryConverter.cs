@@ -26,7 +26,7 @@ namespace Xstream.Core.Converters.Collections {
 
         protected virtual void DoSpecificStuff(IDictionary dictionary, XStreamWriter writer) {}
 
-        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context, Type type) {
             IDictionary result = EmptyDictionary(reader);
             int count = reader.NoOfChildren();
             reader.MoveDown();

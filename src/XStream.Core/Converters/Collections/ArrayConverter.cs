@@ -19,7 +19,7 @@ namespace Xstream.Core.Converters.Collections {
                 context.ConvertOriginal(o);
         }
 
-        public object UnMarshall(XStreamReader reader, UnmarshallingContext context) {
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context, Type type) {
             int count = reader.NoOfChildren();
             Array result = Array.CreateInstance(Type.GetType(reader.GetAttribute(ARRAY_TYPE)), count);
             if (count != 0) {
