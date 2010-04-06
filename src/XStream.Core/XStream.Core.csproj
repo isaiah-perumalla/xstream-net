@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlreadySerialisedDictionary.cs" />
+    <Compile Include="Converters\ObjectConverter.cs" />
     <Compile Include="Mappers\XNull.cs" />
     <Compile Include="XsAttribute.cs" />
     <Compile Include="Constants.cs" />

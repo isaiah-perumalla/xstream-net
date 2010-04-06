@@ -1,54 +1,57 @@
-using System;
+﻿using System;
 using xstream;
 using Xstream.Core.Mappers;
 using xstream.Utilities;
 
-namespace Xstream.Core
-{
-    internal class Unmarshaller
+namespace Xstream.Core.Converters {
+    internal class ObjectConverter : Converter
     {
-        private readonly XStreamReader reader;
-        private readonly UnmarshallingContext context;
-        private readonly ConverterLookup converterLookup;
         private readonly IMapper mapper;
+        private readonly ConverterLookup converterLookup;
 
-
-        public Unmarshaller(XStreamReader reader, UnmarshallingContext context, ConverterLookup converterLookup, IMapper mapper)
-        {
-            this.reader = reader;
+        public ObjectConverter(IMapper mapper, ConverterLookup converterLookup) {
             this.mapper = mapper;
-            this.context = context;
             this.converterLookup = converterLookup;
         }
 
-        internal object Unmarshal(Type type)
+        public bool CanConvert(Type type)
+        {
+            return true;
+        }
+
+        public void Marshall(object value, XStreamWriter writer, MarshallingContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object UnMarshall(XStreamReader reader, UnmarshallingContext context, Type type)
         {
             var result = context.FindReferenceFromCurrentNode();
             if (result != null) return result;
-           
+
             if (reader.GetAttribute(XsAttribute.Null) == true.ToString())
                 return null;
             result = DynamicInstanceBuilder.CreateInstance(type);
             context.StackObject(result);
-            UnmarshalAs(result, type);
+            UnmarshalAs(result, type, reader, context);
             return result;
         }
 
-        private void UnmarshalAs(object result, Type type)
+        private void UnmarshalAs(object result, Type type, XStreamReader reader, UnmarshallingContext context)
         {
             if (type.Equals(typeof(object))) return;
 
             foreach (var field in mapper.GetSerializableFieldsIn(type))
             {
                 reader.MoveDown(field.SerializedName);
-                field.SetValue(result, ConvertField(field.FieldType));
+                field.SetValue(result, ConvertField(field.FieldType, reader, context));
                 reader.MoveUp();
             }
-            UnmarshalAs(result, type.BaseType);
+            UnmarshalAs(result, type.BaseType, reader, context);
         }
 
         //Todo: remove this, should'nt use a lookup here
-        private object ConvertField(Type fieldType)
+        private object ConvertField(Type fieldType, XStreamReader reader, UnmarshallingContext context)
         {
             //ToDo: use mapper to resolve type names
             //var type = mapper.RealTypeFor(serializeValue)
@@ -57,8 +60,7 @@ namespace Xstream.Core
             var converter = converterLookup.GetConverter(fieldType);
             if (converter != null)
                 return converter.UnMarshall(reader, context, fieldType);
-            return Unmarshal(fieldType);
+            return UnMarshall(reader, context, fieldType);
         }
-
     }
 }
