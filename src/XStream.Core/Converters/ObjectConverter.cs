@@ -1,7 +1,6 @@
 ﻿using System;
 using xstream;
 using Xstream.Core.Mappers;
-using xstream.Utilities;
 
 namespace Xstream.Core.Converters {
     internal class ObjectConverter : Converter
@@ -26,22 +25,14 @@ namespace Xstream.Core.Converters {
             if (type.Equals(typeof(object))) return;
             foreach (var field in mapper.GetSerializableFieldsIn(type))
             {
-                writer.StartNode(field.SerializedName);
-                WriteClassNameIfNeedBe(value, field, writer);
+                field.WriteOn(writer, value);
+               
                 context.ConvertAnother(field.GetObjectFrom(value));
                 writer.EndNode();
             }
             MarshalAs(value, type.BaseType, writer, context);
         }
 
-        private void WriteClassNameIfNeedBe(object value, Field field, XStreamWriter writer)
-        {
-            object fieldValue = field.GetObjectFrom(value);
-            if (fieldValue == null) return;
-            Type actualType = fieldValue.GetType();
-            if (!field.FieldType.Equals(actualType))
-                writer.WriteAttribute(XsAttribute.classType, actualType.AssemblyQualifiedName);
-        }
         public object UnMarshall(XStreamReader reader, UnmarshallingContext context, Type type)
         {
             var result = context.FindReferenceFromCurrentNode();

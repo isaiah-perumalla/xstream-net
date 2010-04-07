@@ -41,6 +41,15 @@ namespace Xstream.Core.Mappers
         public object GetObjectFrom(object containingObject) {
             return fieldInfo.GetValue(containingObject);
         }
+
+        public void WriteOn(XStreamWriter writer, object value) {
+            writer.StartNode(SerializedName);
+            object fieldValue = GetObjectFrom(value);
+            if (fieldValue == null) return;
+            Type actualType = fieldValue.GetType();
+            if (!FieldType.Equals(actualType))
+                writer.WriteAttribute(XsAttribute.classType, actualType.AssemblyQualifiedName);
+        }
     }
 
    
