@@ -10,6 +10,7 @@ namespace Xstream.Core.Mappers
         IEnumerable<Field> GetSerializableFieldsIn(Type type);
         SerializedValue SerializedTypeFor(Type type);
         Type ResolveTypeFor(SerializedValue serializedValue);
+        Type ResolveFieldTypeFor(Field field, SerializedValue serializedField);
     }
 
     internal class Field {

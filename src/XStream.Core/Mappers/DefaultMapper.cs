@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Xml.Serialization;
 using xstream;
+using xstream.Utilities;
 
 namespace Xstream.Core.Mappers {
     internal class DefaultMapper : IMapper
@@ -40,6 +41,14 @@ namespace Xstream.Core.Mappers {
                     return typeof (XNull);
             var classType = serializedValue.ValueOfAtrributeNamed(XsAttribute.classType);
             return Type.GetType(classType);
+        }
+
+        public Type ResolveFieldTypeFor(Field field, SerializedValue serializedField) {
+            
+            var classAttribute = serializedField.ValueOfAtrributeNamed(XsAttribute.classType);
+            Type fieldType = field.FieldType;
+            if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(Xmlifier.UnXmlify(classAttribute));
+            return fieldType;
         }
     }
 }
