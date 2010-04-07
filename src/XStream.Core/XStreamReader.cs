@@ -2,7 +2,7 @@ using System.IO;
 using System.Xml.XPath;
 using xstream.Utilities;
 
-namespace xstream {
+namespace Xstream.Core {
     public interface XStreamReader {
         string GetValue();
         string GetNodeName();
@@ -75,6 +75,17 @@ namespace xstream {
             bool succeeded = navigator.MoveToChild(name, "");
             if (succeeded) stack.Push(GetNodeName());
             return succeeded;
+        }
+
+        public SerializedValue ReadSerializedValue()
+        {
+            var tagName = GetNodeName();
+            string attributeValue = GetAttribute(XsAttribute.classType);
+            string nullValue = GetAttribute(XsAttribute.Null);
+
+            var classAtrribute = new XsAttribute(XsAttribute.classType, attributeValue);
+            var nullAtrribute = new XsAttribute(XsAttribute.Null, nullValue);
+            return new SerializedValue(tagName, classAtrribute, nullAtrribute);
         }
     }
 }

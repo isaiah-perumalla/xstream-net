@@ -42,7 +42,7 @@ namespace Xstream.Core.Mappers
             return fieldInfo.GetValue(containingObject);
         }
 
-        public void WriteOn(XStreamWriter writer, object value) {
+        public void WriteValueOn(XStreamWriter writer, object value) {
             writer.StartNode(SerializedName);
             object fieldValue = GetObjectFrom(value);
             if (fieldValue == null) return;

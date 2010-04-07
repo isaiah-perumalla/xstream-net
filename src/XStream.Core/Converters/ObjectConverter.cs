@@ -20,17 +20,16 @@ namespace Xstream.Core.Converters {
             MarshalAs(value, value.GetType(), writer, context);
         }
 
-        private void MarshalAs(object value, Type type, XStreamWriter writer, MarshallingContext context)
+        private void MarshalAs(object containingObject, Type type, XStreamWriter writer, MarshallingContext context)
         {
             if (type.Equals(typeof(object))) return;
             foreach (var field in mapper.GetSerializableFieldsIn(type))
             {
-                field.WriteOn(writer, value);
-               
-                context.ConvertAnother(field.GetObjectFrom(value));
+                field.WriteValueOn(writer, containingObject);
+                context.ConvertAnother(field.GetObjectFrom(containingObject));
                 writer.EndNode();
             }
-            MarshalAs(value, type.BaseType, writer, context);
+            MarshalAs(containingObject, type.BaseType, writer, context);
         }
 
         public object UnMarshall(XStreamReader reader, UnmarshallingContext context, Type type)
