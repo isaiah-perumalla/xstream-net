@@ -1,6 +1,7 @@
 using NUnit.Framework;
+using xstream.Utilities;
 
-namespace xstream.Utilities {
+namespace Xstream.Tests.Unit {
     [TestFixture]
     public class XmlStackTest {
         private XmlStack stack;

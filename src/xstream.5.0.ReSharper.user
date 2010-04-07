@@ -8,22 +8,58 @@
   </SettingsComponent>
   <RecentFiles>
     <RecentFiles>
-      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/f:HashtableConverterTest.cs" caret="1362" fromTop="42" />
-      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Accepatance/f:DontSerialiseAttributeTest.cs" caret="274" fromTop="3" />
-      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/d:Collections/f:ListConverterTest.cs" caret="269" fromTop="4" />
       <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/f:SingleValueConverterTest.cs" caret="1032" fromTop="17" />
       <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Unit/f:ReleaseTest.cs" caret="1403" fromTop="3" />
       <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Accepatance/f:GenericsTest.cs" caret="787" fromTop="4" />
-      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/d:Collections/f:ArrayConverterTest.cs" caret="533" fromTop="3" />
       <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Accepatance/f:CircularReferenceTest.cs" caret="1034" fromTop="10" />
       <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/f:ConverterTestCase.cs" caret="827" fromTop="2" />
-      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/f:ObjectConverterTest.cs" caret="1734" fromTop="13" />
       <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/d:Collections/f:DictionaryConverterTest.cs" caret="1497" fromTop="29" />
-      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:XStream.cs" caret="566" fromTop="12" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:AlreadySerialisedDictionary.cs" caret="74" fromTop="2" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:S.cs" caret="275" fromTop="7" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:XStream.cs" caret="1315" fromTop="3" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/d:Collections/f:ListConverterTest.cs" caret="394" fromTop="3" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/d:Collections/f:ArrayConverterTest.cs" caret="533" fromTop="3" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/f:ObjectConverterTest.cs" caret="2059" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/d:Collections/f:ArrayConverter.cs" caret="2356" fromTop="13" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/f:HashtableConverterTest.cs" caret="564" fromTop="3" />
+      <File id="d:Miscellaneous Files/f:~vs62.xml/l:C!?DOCUME~1?isaiah?LOCALS~1?Temp?~vs62.xml" caret="379" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:Converter.cs" caret="244" fromTop="3" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Accepatance/f:DontSerialiseAttributeTest.cs" caret="426" fromTop="11" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Unit/f:DefaultMapperTests.cs" caret="0" fromTop="0" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:UnmarshallingContext.cs" caret="1972" fromTop="5" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="3535" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:IMapper.cs" caret="143" fromTop="0" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:DefaultMapper.cs" caret="2536" fromTop="47" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Unit/f:XmlStackTest.cs" caret="0" fromTop="0" />
     </RecentFiles>
     <RecentEdits>
       <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/d:Collections/f:DictionaryConverterTest.cs" caret="1579" fromTop="31" />
       <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Converters/d:Collections/f:DictionaryConverterTest.cs" caret="1497" fromTop="29" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/f:AlreadySerialisedDictionary.cs" caret="74" fromTop="2" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="1524" fromTop="7" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="1887" fromTop="13" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="3848" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="3848" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="269" fromTop="1" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Accepatance/f:DontSerialiseAttributeTest.cs" caret="453" fromTop="11" />
+      <File id="d:Miscellaneous Files/f:~vs62.xml/l:C!?DOCUME~1?isaiah?LOCALS~1?Temp?~vs62.xml" caret="0" fromTop="0" />
+      <File id="d:Miscellaneous Files/f:~vs62.xml/l:C!?DOCUME~1?isaiah?LOCALS~1?Temp?~vs62.xml" caret="379" fromTop="3" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Accepatance/f:DontSerialiseAttributeTest.cs" caret="1095" fromTop="3" />
+      <File id="73DEC5C5-C593-4E48-B61E-6900932DEEF8/d:Accepatance/f:DontSerialiseAttributeTest.cs" caret="812" fromTop="0" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="3620" fromTop="7" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:DefaultMapper.cs" caret="1363" fromTop="15" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:DefaultMapper.cs" caret="1407" fromTop="0" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="3848" fromTop="13" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:IMapper.cs" caret="496" fromTop="6" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="4522" fromTop="17" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="3937" fromTop="7" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:IMapper.cs" caret="410" fromTop="5" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:DefaultMapper.cs" caret="206" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:DefaultMapper.cs" caret="2196" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Converters/f:ObjectConverter.cs" caret="3535" fromTop="8" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:DefaultMapper.cs" caret="1743" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:DefaultMapper.cs" caret="2452" fromTop="3" />
+      <File id="745AD63F-676D-4D1F-BF0F-15AB3158BF62/d:Mappers/f:DefaultMapper.cs" caret="2536" fromTop="7" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -43,29 +79,29 @@
       <Item value="InternalsVisibleTo" priority="0" />
       <Item value="converter" priority="3" />
       <Item value="Xmlifier`0" priority="0" />
-      <Item value="type" priority="6" />
+      <Item value="type" priority="7" />
       <Item value="public" priority="0" />
       <Item value="void" priority="0" />
-      <Item value="var" priority="10" />
+      <Item value="var" priority="13" />
       <Item value="new" priority="18" />
       <Item value="XStream" priority="9" />
       <Item value="using" priority="0" />
       <Item value="Xstream" priority="0" />
       <Item value="IMapper`0" priority="0" />
-      <Item value="mapper" priority="8" />
+      <Item value="mapper" priority="12" />
       <Item value="this" priority="2" />
-      <Item value="context" priority="11" />
-      <Item value="result" priority="1" />
-      <Item value="field" priority="0" />
+      <Item value="context" priority="15" />
+      <Item value="result" priority="3" />
+      <Item value="field" priority="7" />
       <Item value="throw" priority="2" />
       <Item value="Start`0" priority="0" />
       <Item value="objectConverter" priority="4" />
-      <Item value="return" priority="6" />
+      <Item value="return" priority="8" />
       <Item value="true" priority="1" />
-      <Item value="reader" priority="11" />
+      <Item value="reader" priority="14" />
       <Item value="ConverterLookup`0" priority="0" />
       <Item value="converterLookup" priority="4" />
-      <Item value="fieldType" priority="1" />
+      <Item value="fieldType" priority="9" />
       <Item value="ConverterLookup" priority="2" />
       <Item value="if" priority="3" />
       <Item value="defaultConverter" priority="2" />
@@ -83,7 +119,7 @@
       <Item value="XStream`0" priority="1" />
       <Item value="matchedConverter" priority="2" />
       <Item value="else" priority="0" />
-      <Item value="ReadSerializedValue`0" priority="3" />
+      <Item value="ReadSerializedValue`0" priority="6" />
       <Item value="serializedValue" priority="4" />
       <Item value="elementType" priority="0" />
       <Item value="DefaultMapper`0" priority="3" />
@@ -93,15 +129,20 @@
       <Item value="XStreamReader`0" priority="0" />
       <Item value="serializeValue" priority="0" />
       <Item value="DefaultMapper" priority="0" />
+      <Item value="parent" priority="0" />
+      <Item value="xml" priority="0" />
+      <Item value="Type`0" priority="0" />
+      <Item value="serializedField" priority="3" />
+      <Item value="classTypeAttribute" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@xstream.Utilities.Xmlifier">
       <Item value="XmlifyNode`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Xstream.Core.UnmarshallingContext">
-      <Item value="ConvertAnother`0" priority="4" />
+      <Item value="ConvertAnother`0" priority="7" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Xstream.Core.Mappers.Field">
-      <Item value="FieldType" priority="0" />
+      <Item value="FieldType" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Xstream.Core.Converters.Converter">
       <Item value="UnMarshall`0" priority="0" />
@@ -120,10 +161,19 @@
       <Item value="converterLookup" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Xstream.Core.Mappers.IMapper">
-      <Item value="ResolveTypeFor`0" priority="1" />
+      <Item value="ResolveTypeFor`0" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Xstream.Core.ConverterLookup">
       <Item value="AddConverter`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Xstream.Core.MarshallingContext">
+      <Item value="ConvertAnother`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Xstream.Core.SerializedValue">
+      <Item value="ValueOfAtrributeNamed`0" priority="1" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>
