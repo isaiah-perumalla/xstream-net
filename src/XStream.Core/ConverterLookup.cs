@@ -40,7 +40,7 @@ namespace Xstream.Core {
 
         public ConverterLookup(IMapper mapper) {
             converters.AddRange(standardConverters);
-            objectConverter = new ObjectConverter(mapper, this); //Todo clean this up
+            objectConverter = new ObjectConverter(mapper); //Todo clean this up
 
         }
 

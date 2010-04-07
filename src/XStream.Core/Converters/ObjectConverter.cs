@@ -7,11 +7,9 @@ namespace Xstream.Core.Converters {
     internal class ObjectConverter : Converter
     {
         private readonly IMapper mapper;
-        private readonly ConverterLookup converterLookup;
 
-        public ObjectConverter(IMapper mapper, ConverterLookup converterLookup) {
+        public ObjectConverter(IMapper mapper) {
             this.mapper = mapper;
-            this.converterLookup = converterLookup;
         }
 
         public bool CanConvert(Type type)
