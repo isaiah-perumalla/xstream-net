@@ -21,15 +21,7 @@ namespace Xstream.Core.Converters {
 
         public void Marshall(object value, XStreamWriter writer, MarshallingContext context) {
             Type type = value.GetType();
-            if (type.Equals(typeof(object))) return;
-            foreach (var field in mapper.GetSerializableFieldsIn(type))
-            {
-                writer.StartNode(field.SerializedName);
-                WriteClassNameIfNeedBe(value, field, writer);
-                context.ConvertAnother(field.GetObjectFrom(value));
-                writer.EndNode();
-            }
-            MarshalAs(value, type.BaseType, writer, context);
+            MarshalAs(value, type, writer, context);
         }
 
         private void MarshalAs(object value, Type type, XStreamWriter writer, MarshallingContext context)
