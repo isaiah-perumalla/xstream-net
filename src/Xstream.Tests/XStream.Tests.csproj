@@ -70,7 +70,6 @@
     <Compile Include="Unit\ReaderTest.cs" />
     <Compile Include="Unit\ReleaseTest.cs" />
     <Compile Include="Unit\DefaultMapperTests.cs" />
-    <Compile Include="Unit\XmlifierTest.cs" />
     <Compile Include="Unit\XmlStackTest.cs" />
     <Compile Include="Unit\XStreamAssert.cs" />
   </ItemGroup>

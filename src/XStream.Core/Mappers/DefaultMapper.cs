@@ -47,8 +47,12 @@ namespace Xstream.Core.Mappers {
             
             var classAttribute = serializedField.ValueOfAtrributeNamed(XsAttribute.classType);
             Type fieldType = field.FieldType;
-            if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(Xmlifier.UnXmlify(classAttribute));
+            if (!string.IsNullOrEmpty(classAttribute)) fieldType = Type.GetType(resolveTypeFrom(classAttribute));
             return fieldType;
+        }
+
+        private static string resolveTypeFrom(string classAttribute) {
+            return classAttribute.Replace("-array", "[]").Replace("-plus", "+");
         }
     }
 }

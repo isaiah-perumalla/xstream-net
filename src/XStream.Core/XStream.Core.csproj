@@ -72,7 +72,6 @@
     <Compile Include="S.cs" />
     <Compile Include="TODO.cs" />
     <Compile Include="UnmarshallingContext.cs" />
-    <Compile Include="Xmlifier.cs" />
     <Compile Include="XmlStack.cs" />
     <Compile Include="XStream.cs" />
     <Compile Include="XStreamReader.cs" />
