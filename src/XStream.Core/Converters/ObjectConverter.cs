@@ -34,16 +34,7 @@ namespace Xstream.Core.Converters {
                 context.ConvertAnother(field.GetObjectFrom(value));
                 writer.EndNode();
             }
-            var baseType = type.BaseType;
-            if (baseType.Equals(typeof(object))) return;
-            foreach (var field in mapper.GetSerializableFieldsIn(baseType))
-            {
-                writer.StartNode(field.SerializedName);
-                WriteClassNameIfNeedBe(value, field, writer);
-                context.ConvertAnother(field.GetObjectFrom(value));
-                writer.EndNode();
-            }
-            MarshalAs(value, baseType.BaseType, writer, context);
+            MarshalAs(value, type.BaseType, writer, context);
         }
 
         private void WriteClassNameIfNeedBe(object value, Field field, XStreamWriter writer)
