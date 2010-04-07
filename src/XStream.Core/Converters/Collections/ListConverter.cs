@@ -34,7 +34,7 @@ namespace Xstream.Core.Converters.Collections {
 
         private object ReadItem(XStreamReader reader, UnmarshallingContext context, IList result) {
             var serializedValue = ReadSerializedValue(reader);
-            var type = mapper.ResolveTypeFor(serializedValue);
+            var type = mapper.ResolveClassTypeFor(serializedValue);
             return context.ConvertAnother(result, type);
         }
 

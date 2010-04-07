@@ -32,7 +32,7 @@ namespace Xstream.Core.Converters.Collections {
                 reader.MoveDown();
                 for (int i = 0; i < count; i++) {
                     var serializedValue = ReadSerializedValue(reader);
-                    var elementType = mapper.ResolveTypeFor(serializedValue);
+                    var elementType = mapper.ResolveClassTypeFor(serializedValue);
                     result.SetValue(context.ConvertAnother(result, elementType), i);
                     reader.MoveNext();
                 }

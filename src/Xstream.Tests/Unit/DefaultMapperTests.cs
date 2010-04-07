@@ -50,14 +50,14 @@ namespace Xstream.Tests.Unit {
         public void CanResolveTypeWhenExplicitClassAttribute() {
             var serializedType = serializedValue("SomeClass", attribute("class", innerClassName));
             var expectedType = innerClassType;
-            Assert.AreEqual(expectedType, mapper.ResolveTypeFor(serializedType));
+            Assert.AreEqual(expectedType, mapper.ResolveClassTypeFor(serializedType));
         }
         
         [Test]
         public void CanResolveTypeForNull() {
             var serializedType = serializedValue("SomeClass", attribute(XsAttribute.Null, true.ToString()));
             var expectedType = typeof(XNull);
-            Assert.AreEqual(expectedType, mapper.ResolveTypeFor(serializedType));
+            Assert.AreEqual(expectedType, mapper.ResolveClassTypeFor(serializedType));
         }
 
 

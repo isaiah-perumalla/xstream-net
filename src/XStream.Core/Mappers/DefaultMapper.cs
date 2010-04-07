@@ -36,7 +36,7 @@ namespace Xstream.Core.Mappers {
             return new SerializedValue(serializedClassName, new XsAttribute(XsAttribute.classType, getType.AssemblyQualifiedName));
         }
 
-        public Type ResolveTypeFor(SerializedValue serializedValue) {
+        public Type ResolveClassTypeFor(SerializedValue serializedValue) {
              if("true".Equals(serializedValue.ValueOfAtrributeNamed(XsAttribute.Null), StringComparison.InvariantCultureIgnoreCase))
                     return typeof (XNull);
             var classType = serializedValue.ValueOfAtrributeNamed(XsAttribute.classType);

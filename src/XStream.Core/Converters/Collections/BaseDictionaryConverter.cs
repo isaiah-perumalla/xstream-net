@@ -55,7 +55,7 @@ namespace Xstream.Core.Converters.Collections {
             string nodeName = reader.GetNodeName();
             var serializeValue = ReadSerializedValue(reader);
 
-            object o = context.ConvertAnother(value, mapper.ResolveTypeFor(serializeValue));
+            object o = context.ConvertAnother(value, mapper.ResolveClassTypeFor(serializeValue));
             if (BaseDictionaryConverter<Hashtable>.KEY.Equals(nodeName)) key = o;
             else value = o;
         }

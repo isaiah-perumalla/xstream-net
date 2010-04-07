@@ -82,10 +82,9 @@ namespace Xstream.Core.Converters {
             foreach (var field in mapper.GetSerializableFieldsIn(type))
             {
                 reader.MoveDown(field.SerializedName);
+                
                 var serializedField = ReadSerializedValue(reader);
-
-                Type fieldType = mapper.ResolveFieldTypeFor(field, serializedField);
-               
+                var fieldType = mapper.ResolveFieldTypeFor(field, serializedField);
                 object fieldValue = context.ConvertAnother(result, fieldType);
                 field.SetValue(result, fieldValue);
                 reader.MoveUp();

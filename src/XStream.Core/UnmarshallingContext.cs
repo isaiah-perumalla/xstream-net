@@ -25,7 +25,7 @@ namespace Xstream.Core {
 
         public object Start() {
             var serializedValue = ReadSerializedValue(reader);
-            var type = mapper.ResolveTypeFor(serializedValue);
+            var type = mapper.ResolveClassTypeFor(serializedValue);
 
             //ToDo: duplicated in Object converter
             var result = FindReferenceFromCurrentNode();
