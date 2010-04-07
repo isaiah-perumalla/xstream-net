@@ -18,8 +18,7 @@ namespace Xstream.Core.Converters {
         }
 
         public void Marshall(object value, XStreamWriter writer, MarshallingContext context) {
-            Type type = value.GetType();
-            MarshalAs(value, type, writer, context);
+            MarshalAs(value, value.GetType(), writer, context);
         }
 
         private void MarshalAs(object value, Type type, XStreamWriter writer, MarshallingContext context)
